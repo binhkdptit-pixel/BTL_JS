@@ -1,27 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tiệm Ăn Mini</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<header>
-    <h1>Binh ngo dai cao</h1>
-    <h2>hay</h2>
-    <h3>siêu hay</h3>
-    <h4>hay vãi</h4>
-</header>
-
 <body>
     <div class="container">
-        <h1>Welcome to My Website</h1>
-        <p>This is a sample webpage created for demonstration purposes.</p>
-        <button class="btn">Click Me</button>
+        <header>
+            <h1>🍔 Tiệm Ăn Mini</h1>
+            <div class="cart-icon">
+                🛒 Giỏ hàng (<span id="cart-count">0</span>)
+            </div>
+        </header>
+
+        <main>
+            <section class="menu-section">
+                <h2>Thực đơn hôm nay</h2>
+                <div id="menu-container" class="menu-grid">
+                    <div class="food-item">
+                        <div class="food-img">🍕</div>
+                        <h3 class="food-name">Pizza Phô Mai</h3>
+                        <p class="food-price">120.000đ</p>
+                        <button class="add-to-cart-btn">Thêm vào giỏ</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <div class="food-img">🍟</div>
+                        <h3 class="food-name">Khoai Tây Chiên</h3>
+                        <p class="food-price">30.000đ</p>
+                        <button class="add-to-cart-btn">Thêm vào giỏ</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <div class="food-img">🥤</div>
+                        <h3 class="food-name">Trà Sữa Thái</h3>
+                        <p class="food-price">25.000đ</p>
+                        <button class="add-to-cart-btn">Thêm vào giỏ</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cart-section">
+                <h2>Giỏ hàng của bạn</h2>
+                <ul id="cart-list" class="cart-list">
+                    <li class="empty-cart-msg">Chưa có món nào trong giỏ.</li>
+                    
+                    </ul>
+                
+                <div class="cart-summary">
+                    <p>Tổng cộng: <span id="total-price">0đ</span></p>
+                    <button id="checkout-btn">Thanh toán</button>
+                </div>
+            </section>
+        </main>
     </div>
+    
+    <script src="script.js"></script>
 </body>
-</html
-
-
-
+</html>
