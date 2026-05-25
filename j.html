@@ -9,35 +9,54 @@
 <body>
     <div class="container">
         <header>
-            <h1>🍔 Tiệm Ăn Mini</h1>
+            <div class="header-left">
+                <h1>🍔 Tiệm Ăn Mini</h1>
+                <p>Đồ ăn ngon, giao nhanh, tươi mỗi ngày</p>
+            </div>
             <div class="cart-icon">
                 🛒 Giỏ hàng (<span id="cart-count">0</span>)
             </div>
         </header>
 
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Đại tiệc đồ ăn ngon miệng</h2>
+                <p>Khám phá thực đơn đa dạng với món ăn hấp dẫn, tươi ngon và phục vụ nhanh chóng.</p>
+                <button class="hero-btn">Xem thực đơn</button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=900&q=80" alt="Món ăn ngon" class="hero-img">
+        </section>
+
         <main>
             <section class="menu-section">
-                <h2>Thực đơn hôm nay</h2>
+                <div class="section-header">
+                    <h2>Thực đơn hôm nay</h2>
+                    <p>Chọn món yêu thích của bạn và thêm vào giỏ hàng ngay.</p>
+                </div>
                 <div id="menu-container" class="menu-grid">
-                    <div class="food-item">
-                        <div class="food-img">🍕</div>
-                        <h3 class="food-name">Pizza Phô Mai</h3>
-                        <p class="food-price">120.000đ</p>
-                        <button class="add-to-cart-btn">Thêm vào giỏ</button>
+                    <div class="food-item" data-name="Pizza Phô Mai" data-price="120000" data-image="https://images.unsplash.com/photo-1548365328-5d2c21c1b0a9?auto=format&fit=crop&w=500&q=80">
+                        <img class="food-img" src="https://images.unsplash.com/photo-1548365328-5d2c21c1b0a9?auto=format&fit=crop&w=500&q=80" alt="Pizza Phô Mai">
+                        <div class="food-item-content">
+                            <h3 class="food-name">Pizza Phô Mai</h3>
+                            <p class="food-price">120.000đ</p>
+                            <button class="add-to-cart-btn">Thêm vào giỏ</button>
+                        </div>
                     </div>
-                    
-                    <div class="food-item">
-                        <div class="food-img">🍟</div>
-                        <h3 class="food-name">Khoai Tây Chiên</h3>
-                        <p class="food-price">30.000đ</p>
-                        <button class="add-to-cart-btn">Thêm vào giỏ</button>
+                    <div class="food-item" data-name="Khoai Tây Chiên" data-price="30000" data-image="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=500&q=80">
+                        <img class="food-img" src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=500&q=80" alt="Khoai Tây Chiên">
+                        <div class="food-item-content">
+                            <h3 class="food-name">Khoai Tây Chiên</h3>
+                            <p class="food-price">30.000đ</p>
+                            <button class="add-to-cart-btn">Thêm vào giỏ</button>
+                        </div>
                     </div>
-                    
-                    <div class="food-item">
-                        <div class="food-img">🥤</div>
-                        <h3 class="food-name">Trà Sữa Thái</h3>
-                        <p class="food-price">25.000đ</p>
-                        <button class="add-to-cart-btn">Thêm vào giỏ</button>
+                    <div class="food-item" data-name="Trà Sữa Thái" data-price="25000" data-image="https://images.unsplash.com/photo-1510627498534-cf7e9002facc?auto=format&fit=crop&w=500&q=80">
+                        <img class="food-img" src="https://images.unsplash.com/photo-1510627498534-cf7e9002facc?auto=format&fit=crop&w=500&q=80" alt="Trà Sữa Thái">
+                        <div class="food-item-content">
+                            <h3 class="food-name">Trà Sữa Thái</h3>
+                            <p class="food-price">25.000đ</p>
+                            <button class="add-to-cart-btn">Thêm vào giỏ</button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -46,9 +65,7 @@
                 <h2>Giỏ hàng của bạn</h2>
                 <ul id="cart-list" class="cart-list">
                     <li class="empty-cart-msg">Chưa có món nào trong giỏ.</li>
-                    
-                    </ul>
-                
+                </ul>
                 <div class="cart-summary">
                     <p>Tổng cộng: <span id="total-price">0đ</span></p>
                     <button id="checkout-btn">Thanh toán</button>
