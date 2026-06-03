@@ -1,30 +1,51 @@
 const products = [
-    { id: 1, name: "Bún chả", price: 25000 },
-    { id: 2, name: "Bánh mì BBT", price: 15000 },
-    { id: 3, name: "Trà Sữa siêu to", price: 30000 },
-    { id: 4, name: "Gà Rán BBT", price: 35000 },
-    { id: 5, name: "Nước ngọt Monster", price: 20000 }
+    { id: 1, name: "Khoai Tây Chiên", price: 25000 },
+    { id: 2, name: "Bánh Mì Que", price: 15000 },
+    { id: 3, name: "Trà Sữa", price: 30000 },
+    { id: 4, name: "Gà Rán", price: 35000 },
+    { id: 5, name: "Kem Ốc Quế", price: 20000 }
 ];
 
 function renderProducts(filteredProducts) {
     const container = document.getElementById("productList");
     container.innerHTML = "";
-    filteredProducts.forEach(product => {
+
+    for (let i = 0; i < filteredProducts.length; i++) {
+        const product = filteredProducts[i];
         const div = document.createElement("div");
         div.className = "product-card";
         div.innerHTML = `
             <h3>${product.name}</h3>
-            <p>${formatPrice(product.price)}</p>
+            <p>${product.price} VNĐ</p>
             <button onclick="addToCart(${product.id})">Thêm vào giỏ</button>
         `;
         container.appendChild(div);
-    });
+    }
 }
 
 function searchProducts() {
     const keyword = document.getElementById("searchInput").value.toLowerCase();
-    const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
-    renderProducts(filtered);
+    
+    if (keyword === "") {
+        renderProducts(products);
+    } else {
+        const filtered = [];
+        for (let i = 0; i < products.length; i++) {
+            if (products[i].name.toLowerCase().includes(keyword)) {
+                filtered.push(products[i]);
+            }
+        }
+        renderProducts(filtered);
+    }
+}
+
+function getProductById(id) {
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].id === id) {
+            return products[i];
+        }
+    }
+    return null;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
