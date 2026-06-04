@@ -77,7 +77,7 @@ function renderCart() {
         const div = document.createElement("div");
         div.className = "cart-item";
         div.innerHTML = `
-            <p>${item.name} x ${item.quantity} = ${subtotal} VNĐ</p>
+            <p>${item.name} x ${item.quantity} = ${formatPrice(subtotal)}</p>
             <button onclick="changeQuantity(${item.id}, -1)">-</button>
             <button onclick="changeQuantity(${item.id}, 1)">+</button>
             <button onclick="removeFromCart(${item.id})">Xóa</button>
@@ -85,7 +85,7 @@ function renderCart() {
         container.appendChild(div);
     }
 
-    document.getElementById("totalPrice").textContent = calculateTotal();
+    document.getElementById("totalPrice").textContent = formatPrice(calculateTotal());
 }
 
 function checkout() {
@@ -93,7 +93,7 @@ function checkout() {
         alert("Giỏ hàng đang trống!");
     } else {
         localStorage.setItem("currentOrder", JSON.stringify(cart));
-        window.location.href = "invoice.html";
+        window.location.href = "giaodich.html";
     }
 }
 

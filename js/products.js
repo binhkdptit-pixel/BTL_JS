@@ -16,7 +16,7 @@ function renderProducts(filteredProducts) {
         div.className = "product-card";
         div.innerHTML = `
             <h3>${product.name}</h3>
-            <p>${product.price} VNĐ</p>
+            <p>${formatPrice(product.price)}</p>
             <button onclick="addToCart(${product.id})">Thêm vào giỏ</button>
         `;
         container.appendChild(div);
