@@ -14,6 +14,8 @@ body {
   background: #f8f8f8;
 }
 
+
+
 /* 2. HEADER & SEARCH BAR */
 header {
   background: #e8efdb;
@@ -25,6 +27,7 @@ header {
 }
 
 header h1 {
+  font-family:'Pacifico', cursive;
   color: #6b9e2f;
   font-size: 32px;
   flex-shrink: 0;
@@ -73,16 +76,42 @@ nav a {
 }
 
 /* 3. MENU BAR */
-.menu-bar {
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /* Thay vì overflow và text-align, ta dùng flexbox */
   background: #7db53f;
-  padding: 15px;
+  display: flex; 
+  justify-content: center; /* Căn giữa toàn bộ các li */
+}
+
+ul li {
+  /* Xóa float: left; ở đây */
+}
+
+ul li a {
+  display: block;
+  color: white;
   text-align: center;
+  padding: 20px 20px; /* Thêm một chút padding hai bên để các nút không quá sát nhau */
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #4e8710;
 }
 
 .menu-bar a {
+  text-align: center;
   color: white;
   text-decoration: none;
-  margin: 0 20px;
+  margin: 0 0px;
   font-weight: bold;
   transition: color 0.2s ease;
 }
@@ -90,7 +119,6 @@ nav a {
 .menu-bar a:hover {
   color: #f0fce3;
 }
-
 /* 4. HERO SECTION */
 .hero {
   height: 500px;
@@ -112,7 +140,7 @@ nav a {
 
 .hero-content h2 {
   color: #f0fce3;
-  font-family: "baber complete", sans-serif;
+  font-family: 'Pacifico', cursive;
   font-size: 64px;
   margin-bottom: 15px;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
@@ -120,7 +148,7 @@ nav a {
 
 .hero-content h3 {
   color: #f0fce3;
-  font-family: "baber complete", sans-serif;
+  font-family: 'Pacifico', cursive;
   font-size: 28px;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   font-weight: normal;
@@ -134,6 +162,7 @@ nav a {
 }
 
 .menu h2 {
+  font-family: 'Pacifico', cursive;
   color: #6b9e2f;
   font-size: 38px;
   margin-bottom: 30px;
@@ -147,13 +176,18 @@ nav a {
 }
 
 .group-title {
+  font-family: 'Pacifico', cursive; 
   color: #333;
-  font-size: 24px;
+  font-size: 40px;
   margin-bottom: 15px;
   padding-left: 5px;
   border-left: 4px solid #7db53f;
+  transition-duration: 0.5s;
 }
 
+.group-title:hover {
+  background-color: #7db53f;
+}
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -320,6 +354,7 @@ footer {
 }
 
 .footer-section h3 {
+  font-family: 'Pacifico', cursive;
   color: #7db53f;
   margin-bottom: 15px;
   font-size: 20px;
