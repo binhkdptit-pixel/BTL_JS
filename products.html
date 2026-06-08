@@ -1,21 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sản Phẩm - BBT đồ ăn nhanh</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <h1>Danh Sách Sản Phẩm</h1>
-    <input type="text" id="searchInput" placeholder="Tìm kiếm...">
-    <div id="productList"></div>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>BBT</h1>
 
-    <p><a href="cart.html">Xem Giỏ Hàng</a></p>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm món ăn..." />
+        <button id="search-btn">🔍</button>
+      </div>
+
+      <nav>
+        <a href="login.html">Đăng Nhập</a>
+        <a href="register.html">Đăng Ký</a>
+      </nav>
+    </header>
+
+    <div class="menu-bar">
+      <a href="index.html">Trang Chủ</a>
+      <a href="#menu">Thực Đơn</a>
+      <a href="#footer">Liên Hệ</a>
+    </div>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Chào Mừng Đến Với BBT Quán Ăn Việt!</h2>
+          <h3>Thưởng thức những món ăn ngon nhất chỉ trong một cú click!</h3>
+        </div>
+      </section>
+
+      <p style="text-align: center; margin-top: 20px">
+        <a
+          href="cart.html"
+          style="font-weight: bold; color: #ff5722; text-decoration: none"
+          >🛒 Xem Giỏ Hàng của bạn</a
+        >
+      </p>
+
+      <section id="menu" class="menu">
+        <h2>Thực Đơn</h2>
+
+        <div class="menu-group">
+          <h3 class="group-title">🍗 Món Ăn Nổi Bật</h3>
+
+          <div id="productList" class="product-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>⚡ Giao Hàng Siêu Tốc</h3>
+          <p>Đồ ăn luôn nóng hổi và đến tay bạn chỉ trong vòng 15-30 phút.</p>
+        </div>
+        <div class="footer-section">
+          <h3>🍕 Chất Lượng 5 Sao</h3>
+          <p>Nguyên liệu tươi sạch, đảm bảo an toàn vệ sinh thực phẩm.</p>
+        </div>
+        <div class="footer-section">
+          <h3>💸 Giá Cả Hợp Lý</h3>
+          <p>Nhiều chương trình khuyến mãi và combo cực kỳ ưu đãi mỗi ngày.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 BBT Fast Food. All rights reserved.</p>
+      </div>
+    </footer>
 
     <script src="js/main.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/products.js"></script>
     <script src="js/cart.js"></script>
-</body>
+  </body>
 </html>

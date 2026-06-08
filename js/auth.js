@@ -25,7 +25,7 @@ function loginUser(username, password) {
     currentUser = user;
     localStorage.setItem("currentUser", JSON.stringify(user));
     alert("Đăng nhập thành công!");
-    window.location.href = "index.html";
+    window.location.href = "products.html";
   } else {
     alert("Sai tài khoản hoặc mật khẩu!");
   }
