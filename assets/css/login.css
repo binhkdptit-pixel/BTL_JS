@@ -1,0 +1,130 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background-image: url("../images/login-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.header {
+  width: 100%;
+  max-width: 380px;
+  margin-bottom: 40px;
+  text-align: center;
+  padding: 30px 0;
+  border-bottom: 2px solid #007bff;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+}
+
+.brand {
+  font-size: 28px;
+  font-weight: bold;
+  color: #007bff;
+  margin: 0 0 8px 0;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+h1 {
+  width: 100%;
+  max-width: 380px;
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+#loginForm {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+#loginForm br {
+  display: none;
+}
+
+#loginForm input,
+#loginForm button {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+#loginForm input {
+  border: 1px solid #000;
+}
+
+#loginForm button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#loginForm button:hover {
+  background-color: #0056b3;
+}
+
+body > p {
+  width: 100%;
+  max-width: 380px;
+  margin-top: 18px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 12px;
+  border-radius: 6px;
+}
+
+body > p a {
+  text-decoration: none;
+}
+
+body > p a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin-bottom: 30px;
+    padding: 20px 0;
+  }
+
+  .brand {
+    font-size: 24px;
+  }
+
+  .tagline {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  #loginForm {
+    padding: 22px;
+  }
+}
