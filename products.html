@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thực Đơn - BBT Quán Ăn Việt</title>
     <link rel="stylesheet" href="assets/css/products.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -19,15 +22,15 @@
       </div>
 
       <nav id="authSection">
-        <span style="color: #6b9e2f; font-weight: bold">Đang tải...</span>
+        <span class="loading-text">Đang tải...</span>
       </nav>
     </header>
 
-  <ul class="menu-bar">
-    <li><a href="index.html">Trang chủ</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#footer">Liên hệ</a></li>
-  </ul>
+    <ul class="menu-bar">
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#footer">Liên hệ</a></li>
+    </ul>
 
     <main>
       <section class="hero">
@@ -37,41 +40,12 @@
         </div>
       </section>
 
-      <section
-        id="menu"
-        class="menu"
-        style="padding: 20px 4%; max-width: 1200px; margin: 0 auto;"
-      >
-        <div
-          class="menu-header-flex"
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            border-bottom: 2px solid #6b9e2f;
-            padding-bottom: 12px;
-          "
-        >
-          <h2 style="margin: 0; font-size: 28px; color: #6b9e2f">Thực Đơn</h2>
+      <section id="menu" class="menu">
+        <div class="menu-header-flex">
+          <h2>Thực Đơn</h2>
 
-          <p style="margin: 0; font-size: 16px">
-            <a
-              href="cart.html"
-              style="
-                font-weight: bold;
-                color: #ff5722;
-                text-decoration: none;
-                background-color: #fff3e0;
-                padding: 8px 16px;
-                border-radius: 20px;
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-                display: inline-block;
-                transition: transform 0.2s;
-              "
-              onmouseover="this.style.transform = 'scale(1.05)'"
-              onmouseout="this.style.transform = 'scale(1)'"
-            >
+          <p class="cart-wrapper">
+            <a href="cart.html" class="cart-link">
               🛒 Giỏ Hàng Của Bạn (<span id="cartCount">0</span>)
             </a>
           </p>
@@ -97,7 +71,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p> 2026 BBT Fast Food. All rights reserved.</p>
+        <p>&copy; 2026 BBT Fast Food. All rights reserved.</p>
       </div>
     </footer>
 

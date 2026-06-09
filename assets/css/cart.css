@@ -2,13 +2,11 @@
 html {
   scroll-behavior: smooth;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: Arial, sans-serif;
   background: #f8f8f8;
@@ -16,7 +14,6 @@ body {
   line-height: 1.6;
 }
 
-/* 2. Header */
 header {
   background: #e8efdb;
   padding: 15px 40px;
@@ -25,14 +22,12 @@ header {
   align-items: center;
   gap: 20px;
 }
-
 header h1 {
   font-family: "Pacifico", cursive;
   color: #6b9e2f;
   font-size: 32px;
   flex-shrink: 0;
 }
-
 .search-container {
   display: flex;
   align-items: center;
@@ -44,7 +39,6 @@ header h1 {
   max-width: 400px;
   margin: 0 20px;
 }
-
 .search-container input {
   border: none;
   outline: none;
@@ -53,7 +47,6 @@ header h1 {
   width: 100%;
   background: transparent;
 }
-
 .search-container button {
   background: none;
   border: none;
@@ -62,26 +55,22 @@ header h1 {
   color: #555;
   padding-left: 5px;
 }
-
 nav#authSection {
   display: flex;
   gap: 20px;
   flex-shrink: 0;
 }
-
 .loading-text {
   color: #6b9e2f;
   font-weight: bold;
 }
 
-/* 3. Menu Bar */
 .menu-bar {
   list-style-type: none;
   background: #7db53f;
   display: flex;
   justify-content: center;
 }
-
 .menu-bar li a {
   display: block;
   color: white;
@@ -91,54 +80,16 @@ nav#authSection {
   font-weight: bold;
   transition: all 0.2s ease;
 }
-
 .menu-bar li a:hover {
   background-color: #4e8710;
   color: #f0fce3;
 }
 
-/* 4. Hero Section */
-.hero {
-  height: 450px;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url("../images/do an.png") no-repeat center center;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 40px;
-  padding: 0 20px;
-}
-
-.hero-content {
-  color: white;
-}
-
-.hero-content h2 {
-  color: #f0fce3;
-  font-family: "Pacifico", cursive;
-  font-size: 52px;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.hero-content h3 {
-  color: #f0fce3;
-  font-family: "Pacifico", cursive;
-  font-size: 24px;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  font-weight: normal;
-}
-
-/* 5. Thực Đơn */
 .menu {
   padding: 20px 4%;
   max-width: 1200px;
   margin: 0 auto 50px auto;
 }
-
 .menu-header-flex {
   display: flex;
   justify-content: space-between;
@@ -147,7 +98,6 @@ nav#authSection {
   border-bottom: 2px solid #6b9e2f;
   padding-bottom: 12px;
 }
-
 .menu-header-flex h2 {
   margin: 0;
   font-size: 28px;
@@ -155,145 +105,28 @@ nav#authSection {
   font-family: "Pacifico", cursive;
 }
 
-.cart-wrapper {
-  margin: 0;
-  font-size: 16px;
-}
-
-/* Nút bấm giỏ hàng */
-.cart-link {
-  font-weight: bold;
-  color: #ff5722;
-  text-decoration: none;
-  background-color: #fff3e0;
-  padding: 8px 16px;
-  border-radius: 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-
-.cart-link:hover {
-  transform: scale(1.05);
-}
-
-/* Các nhóm danh mục món ăn */
-.menu-group {
-  margin-bottom: 40px;
-}
-
-.group-title {
-  font-family: "Pacifico", cursive;
-  color: #333;
-  font-size: 36px;
-  margin-bottom: 15px;
-  padding-left: 10px;
-  border-left: 5px solid #7db53f;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 25px;
-}
-
-/* 6. Thẻ món ăn */
-.product-card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
-.product-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.product-info {
-  padding: 15px;
-  text-align: center;
-}
-
-.product-info h4 {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.product-info .price {
-  color: #ff5722;
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 12px;
-}
-
-.btn-add {
-  background: #7db53f;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  width: 100%;
-  transition: background 0.2s;
-}
-
-.btn-add:hover {
-  background: #6b9e2f;
-}
-
-/* ==========================================
-   7. GIỎ HÀNG THÀNH PHẦN (CART DETAILS)
-   ========================================== */
-#cartCount {
-  background: #ff5722;
-  color: white;
-  padding: 2px 8px;
-  border-radius: 50%;
-  font-size: 14px;
-  margin-left: 3px;
-}
-
 #cartItems {
-  max-width: 600px;
-  margin: 20px auto;
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
-
 .cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 15px 0;
   border-bottom: 1px solid #eee;
 }
-
 .cart-item:last-child {
   border-bottom: none;
 }
-
 .cart-item p {
-  font-size: 16px;
-  color: #333;
+  flex: 1;
 }
-
 .cart-item-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-shrink: 0;
 }
-
 .cart-item-actions button {
   background: #f0f0f0;
   border: 1px solid #ccc;
@@ -301,52 +134,70 @@ nav#authSection {
   cursor: pointer;
   font-weight: bold;
   border-radius: 4px;
-  transition: all 0.2s;
 }
-
 .cart-item-actions button:hover {
   background: #e0e0e0;
 }
 
-.cart-summary {
-  max-width: 600px;
-  margin: 20px auto;
-  text-align: right;
+/* 2. Giỏ Hàng */
+.cart-container-flex {
+  display: flex;
+  gap: 25px;
+}
+.cart-left {
+  flex: 2;
+}
+.cart-right {
+  flex: 1;
+}
+.cart-summary-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 20px;
+}
+.cart-summary-box h3 {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+.total-row {
   font-size: 18px;
   font-weight: bold;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
 }
-
 #totalPrice {
   color: #ff5722;
   font-size: 22px;
-  margin-left: 10px;
 }
-
 .btn-checkout {
   background: #ff5722;
   color: white;
   border: none;
-  padding: 10px 25px;
+  padding: 12px 25px;
   font-size: 16px;
   font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 15px;
+  width: 100%;
   transition: background 0.2s;
 }
-
 .btn-checkout:hover {
   background: #e64a19;
 }
 
-/* 8. Footer */
+/* 3. FOOTER & RESPONSIVE */
 footer {
   background: #333;
   color: white;
   padding: 40px 20px 20px 20px;
   margin-top: 50px;
 }
-
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -355,26 +206,22 @@ footer {
   flex-wrap: wrap;
   gap: 30px;
 }
-
 .footer-section {
   text-align: center;
   flex: 1;
   min-width: 250px;
 }
-
 .footer-section h3 {
   font-family: "Pacifico", cursive;
   color: #7db53f;
   margin-bottom: 15px;
   font-size: 20px;
 }
-
 .footer-section p {
   color: #ccc;
   font-size: 15px;
   line-height: 1.6;
 }
-
 .footer-bottom {
   text-align: center;
   margin-top: 30px;
@@ -384,41 +231,26 @@ footer {
   color: #aaa;
 }
 
-/* 9. Responsive */
 @media (max-width: 768px) {
+  .cart-container-flex {
+    flex-direction: column;
+  }
   header {
     flex-direction: column;
     padding: 15px;
   }
-
   .search-container {
     margin: 10px 0;
     max-width: 100%;
   }
-
   .menu-bar {
     flex-wrap: wrap;
   }
-
   .menu-bar li {
     width: 33.33%;
   }
-
   .menu-bar li a {
     padding: 12px 5px;
     font-size: 14px;
-  }
-
-  .hero {
-    height: 300px;
-  }
-
-  .hero-content h2 {
-    font-size: 36px;
-  }
-
-  .menu-header-flex {
-    flex-direction: column;
-    gap: 15px;
   }
 }
