@@ -22,6 +22,14 @@ function updateCartCount() {
 
 // 4. Hàm chức năng chính: Thêm sản phẩm được chọn vào giỏ hàng
 function addToCart(id) {
+  // Kiểm tra xem người dùng đã đăng nhập chưa
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  
+  if (!currentUser) {
+    alert("⚠️ Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!");
+    return;
+  }
+
   // Gọi hàm từ file products.js để bốc thông tin sản phẩm
   const product = getProductById(id);
   if (!product) {

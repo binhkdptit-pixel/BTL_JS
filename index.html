@@ -5,38 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BBT cửa hàng bán đồ ăn - Trang Chủ</title>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
   </head>
   <body>
     <header>
       <h1>BBT</h1>
 
-      <nav>
+      <nav id="authSection">
         <a href="login.html">Đăng Nhập</a>
         <a href="register.html">Đăng Ký</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-content">
-          <h2>Chào Mừng Đến Với BBT Quán Ăn Việt!</h2>
-          <h3>Thưởng thức những món ăn ngon nhất chỉ trong một cú click!</h3>
+      <!-- Video động quảng cáo -->
+      <section class="video-promo">
+        <div class="video-container">
+          <video autoplay muted loop playsinline>
+            <source src="assets/videos/854216-hd_1920_1080_25fps.mp4" type="video/mp4">
+          </video>
+          <div class="video-overlay">
+            <div class="video-content">
+              <h2> Tinh hoa ẩm thực Việt </h2>
+              <p>Tươi sạch • Chất lượng cao • Giao hàng nhanh</p>
+              <a href="products.html" class="cta-button">Xem Thực Đơn</a>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <!-- Giới thiệu quán -->
+      <section class="about-section">
+        <div class="about-container">
+          <h2>Về BBT Quán Ăn Việt</h2>
+          <div class="about-grid">
+            <div class="about-item">
+              <div class="icon">🏪</div>
+              <h3>Quán Uy Tín</h3>
+              <p>5+ năm phục vụ khách hàng với chất lượng hàng đầu</p>
+            </div>
+            <div class="about-item">
+              <div class="icon">👨‍🍳</div>
+              <h3>Đầu Bếp Giỏi</h3>
+              <p>Đội ngũ nấu nướng kinh nghiệm, tài năng cao</p>
+            </div>
+            <div class="about-item">
+              <div class="icon">🛵</div>
+              <h3>Giao Hàng Nhanh</h3>
+              <p>Chỉ 15-30 phút, vận chuyển an toàn</p>
+            </div>
+            <div class="about-item">
+              <div class="icon">💰</div>
+              <h3>Giá Hợp Lý</h3>
+              <p>Rẻ mà chất, ưu đãi hàng ngày</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Món được chọn nhiều nhất -->
+      <section class="featured-section">
+        <h2>Món Được Yêu Thích Nhất</h2>
+        <div id="topSoldProducts" class="product-carousel"></div>
+      </section>
+
+      <!-- Món đang sale -->
+      <section class="sale-section">
+        <h2>Hôm Nay Có Sale</h2>
+        <div id="saleProducts" class="product-carousel"></div>
       </section>
     </main>
 
     <footer id="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>⚡ Giao Hàng Siêu Tốc</h3>
+          <h3>Giao Hàng Siêu Tốc</h3>
           <p>Đồ ăn luôn nóng hổi và đến tay bạn chỉ trong vòng 15-30 phút.</p>
         </div>
         <div class="footer-section">
-          <h3>🍕 Chất Lượng 5 Sao</h3>
+          <h3>Chất Lượng 5 Sao</h3>
           <p>Nguyên liệu tươi sạch, đảm bảo an toàn vệ sinh thực phẩm.</p>
         </div>
         <div class="footer-section">
-          <h3>💸 Giá Cả Hợp Lý</h3>
+          <h3>Giá Cả Hợp Lý</h3>
           <p>Nhiều chương trình khuyến mãi và combo cực kỳ ưu đãi mỗi ngày.</p>
         </div>
       </div>
@@ -46,6 +97,70 @@
     </footer>
 
     <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      // Hiển thị các sản phẩm nổi bật trên trang chủ
+      document.addEventListener("DOMContentLoaded", () => {
+        renderUserHeader();
+        renderTopSoldProducts();
+        renderSaleProducts();
+      });
+
+      function renderTopSoldProducts() {
+        const topSold = [1, 5, 7, 10]; // ID của các sản phẩm top sold
+        const container = document.getElementById("topSoldProducts");
+        if (!container) return;
+
+        let html = "";
+        topSold.forEach(id => {
+          const product = getProductById(id);
+          if (product) {
+            html += `
+              <div class="product-item">
+                <img src="${product.img}" alt="${product.name}">
+                <div class="product-badge">Top</div>
+                <div class="product-info">
+                  <h4>${product.name}</h4>
+                  <div class="product-price">${formatPrice(product.price)}</div>
+                  <button onclick="addToCart(${product.id})">Thêm vào giỏ</button>
+                </div>
+              </div>
+            `;
+          }
+        });
+        container.innerHTML = html;
+      }
+
+      function renderSaleProducts() {
+        const onSale = [2, 3, 4, 12]; // ID của các sản phẩm sale
+        const container = document.getElementById("saleProducts");
+        if (!container) return;
+
+        let html = "";
+        onSale.forEach(id => {
+          const product = getProductById(id);
+          if (product) {
+            const discount = 15; // 15% off
+            const newPrice = Math.floor(product.price * (1 - discount / 100));
+            html += `
+              <div class="product-item">
+                <img src="${product.img}" alt="${product.name}">
+                <div class="product-badge">-${discount}%</div>
+                <div class="product-info">
+                  <h4>${product.name}</h4>
+                  <div>
+                    <span class="product-price sale">${formatPrice(product.price)}</span>
+                    <span class="product-price">${formatPrice(newPrice)}</span>
+                  </div>
+                  <button onclick="addToCart(${product.id})">Thêm vào giỏ</button>
+                </div>
+              </div>
+            `;
+          }
+        });
+        container.innerHTML = html;
+      }
+    </script>
   </body>
 </html>
