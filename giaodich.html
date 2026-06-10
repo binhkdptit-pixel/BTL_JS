@@ -1,24 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hóa Đơn</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <h1>HÓA ĐƠN THANH TOÁN</h1>
-    <p>BBT đồ ăn nhanh</p>
-    <p>Ngày: <span id="invoiceDate"></span></p>
-    <p>Khách hàng: <span id="customerName"></span></p>
-    
-    <div id="invoiceItems"></div>
-    
-    <h2>Tổng tiền: <span id="invoiceTotal">0</span> VNĐ</h2>
-    
-    <button onclick="window.print()">In Hóa Đơn</button>
-    <button onclick="backToHome()">Về Trang Chủ</button>
-    <script src="js/main.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hóa Đơn - BBT Quán Ăn Việt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/giaodich.css" />
+  </head>
+  <body class="invoice-page">
+    <header class="invoice-header no-print">
+      <a class="brand" href="index.html">BBT</a>
+      <nav aria-label="Điều hướng">
+        <a href="index.html">Trang chủ</a>
+        <a href="products.html">Thực đơn</a>
+        <a href="cart.html">Giỏ hàng</a>
+      </nav>
+    </header>
+
+    <main class="invoice-main">
+      <article class="invoice-card">
+        <div class="invoice-top">
+          <div class="invoice-top-info">
+            <h1>HÓA ĐƠN THANH TOÁN</h1>
+            <p>BBT Quán Ăn Việt — Cảm ơn bạn đã đặt món!</p>
+          </div>
+          <span class="invoice-badge">Thanh toán thành công</span>
+        </div>
+
+        <div class="invoice-meta">
+          <div class="meta-item">
+            <span>Ngày đặt</span>
+            <strong id="invoiceDate">—</strong>
+          </div>
+          <div class="meta-item">
+            <span>Khách hàng</span>
+            <strong id="customerName">—</strong>
+          </div>
+          <div class="meta-item">
+            <span>Mã đơn hàng</span>
+            <strong id="invoiceId">—</strong>
+          </div>
+        </div>
+
+        <div class="invoice-table-wrap">
+          <table class="invoice-table" aria-label="Chi tiết đơn hàng">
+            <thead>
+              <tr>
+                <th>Món ăn</th>
+                <th class="col-qty">SL</th>
+                <th>Thành tiền</th>
+              </tr>
+            </thead>
+            <tbody id="invoiceItems"></tbody>
+          </table>
+        </div>
+
+        <div class="invoice-summary">
+          <div class="invoice-total-box">
+            <div class="invoice-total-row">
+              <span>Số món</span>
+              <strong id="itemCount">0</strong>
+            </div>
+            <div class="invoice-total-row grand-total">
+              <span>Tổng thanh toán</span>
+              <strong id="invoiceTotal">0đ</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="invoice-actions no-print">
+          <button class="btn btn-print" type="button" onclick="window.print()">
+            🖨️ In hóa đơn
+          </button>
+          <button class="btn btn-home" type="button" onclick="backToHome()">
+            🏠 Về trang chủ
+          </button>
+        </div>
+
+        <p class="invoice-note">
+          Hóa đơn được lưu tạm trên trình duyệt. Vui lòng in hoặc chụp màn hình
+          để giữ lại thông tin đơn hàng.
+        </p>
+      </article>
+    </main>
+
+    <footer class="invoice-footer no-print">
+      <p>&copy; 2026 <strong>BBT Fast Food</strong>. All rights reserved.</p>
+    </footer>
+
+    <script src="js/products.js"></script>
     <script src="js/giaodich.js"></script>
-</body>
+  </body>
 </html>
