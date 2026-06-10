@@ -4,103 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giỏ Hàng - BBT Quán Ăn Việt</title>
-    <link rel="stylesheet" href="assets/css/cart.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="assets/css/cart.css" />
   </head>
-  <body>
-    <header>
-      <h1>BBT</h1>
-      <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Tìm kiếm món ăn..." />
-        <button id="search-btn">🔍</button>
-      </div>
-      <nav id="authSection">
-        <span class="loading-text">Đang tải...</span>
+  <body class="cart-page">
+    <header class="cart-header">
+      <a class="brand" href="index.html">BBT</a>
+      <nav aria-label="Điều hướng">
+        <a href="index.html">Trang chủ</a>
+        <a href="products.html">Thực đơn</a>
+        <a href="cart.html" class="active"
+          >Giỏ hàng <span class="cart-badge" id="cartCount">0</span></a
+        >
       </nav>
     </header>
 
-    <ul class="menu-bar">
-      <li><a href="index.html">Trang chủ</a></li>
-      <li><a href="products.html#menu">Menu</a></li>
-      <li><a href="#footer">Liên hệ</a></li>
-    </ul>
-
-    <main class="menu">
-      <div class="menu-header-flex">
-        <h2>Giỏ Hàng Của Bạn</h2>
+    <main class="cart-main">
+      <div class="cart-title">
+        <h1>Giỏ hàng của bạn</h1>
+        <p>Kiểm tra món ăn trước khi thanh toán</p>
       </div>
 
-      <div class="cart-container-flex">
-        <div class="cart-left">
-          <div id="cartItems">
-            <div class="cart-item">
-              <p class="item-text">Dragon Jelly x 1 = 20.000đ</p>
-              <div class="cart-item-actions">
-                <button class="btn-minus">-</button>
-                <button class="btn-plus">+</button>
-                <button class="btn-delete">Xóa</button>
-              </div>
-            </div>
-
-            <div class="cart-item">
-              <p class="item-text">Thịt kho tàu x 1 = 49.000đ</p>
-              <div class="cart-item-actions">
-                <button class="btn-minus">-</button>
-                <button class="btn-plus">+</button>
-                <button class="btn-delete">Xóa</button>
-              </div>
-            </div>
-          </div>
+      <section class="cart-card" aria-label="Danh sách món trong giỏ">
+        <div class="cart-card-head">
+          <h2>Đơn hàng tạm</h2>
+          <span id="cartItemLabel">0 món</span>
         </div>
 
-        <div class="cart-right">
-          <div class="cart-summary-box">
-            <h3>Tóm tắt đơn hàng</h3>
-            <p class="total-row">
-              <span>Tổng tiền:</span>
-              <span id="totalPrice">118.000đ</span>
-            </p>
-            <button class="btn-checkout" onclick="checkout()">
-              Thanh Toán & Xuất Hóa Đơn
+        <div id="cartItems"></div>
+
+        <div class="cart-summary" id="cartSummary">
+          <div class="summary-row">
+            <span>Số lượng món</span>
+            <strong id="summaryCount">0</strong>
+          </div>
+          <div class="summary-row total">
+            <span>Tổng thanh toán</span>
+            <strong id="totalPrice">0đ</strong>
+          </div>
+
+          <div class="cart-actions">
+            <a class="btn-back-menu" href="products.html">← Tiếp tục mua sắm</a>
+            <button class="btn-checkout" type="button" onclick="checkout()">
+              Thanh toán &amp; xuất hóa đơn
             </button>
-            <p style="text-align: center; margin-top: 15px">
-              <a
-                href="products.html#menu"
-                style="color: #6b9e2f; text-decoration: none; font-weight: bold"
-                >◀ Tiếp tục mua sắm</a
-              >
-            </p>
           </div>
         </div>
-      </div>
+      </section>
     </main>
 
-    <footer id="footer">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>⚡ Giao Hàng Siêu Tốc</h3>
-          <p>Đồ ăn luôn nóng hổi và đến tay bạn chỉ trong vòng 15-30 phút.</p>
-        </div>
-        <div class="footer-section">
-          <h3>🍕 Chất Lượng 5 Sao</h3>
-          <p>Nguyên liệu tươi sạch, đảm bảo an toàn vệ sinh thực phẩm.</p>
-        </div>
-        <div class="footer-section">
-          <h3>💸 Giá Cả Hợp Lý</h3>
-          <p>Nhiều chương trình khuyến mãi và combo cực kỳ ưu đãi mỗi ngày.</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 BBT Fast Food. All rights reserved.</p>
-      </div>
+    <footer class="cart-footer">
+      <p>&copy; 2026 <strong>BBT Fast Food</strong>. All rights reserved.</p>
     </footer>
 
-    <script src="js/main.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/products.js"></script>
     <script src="js/cart.js"></script>

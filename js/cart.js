@@ -22,14 +22,6 @@ function updateCartCount() {
 
 // 4. Hàm chức năng chính: Thêm sản phẩm được chọn vào giỏ hàng
 function addToCart(id) {
-  // Kiểm tra xem người dùng đã đăng nhập chưa
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  
-  if (!currentUser) {
-    alert("⚠️ Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!");
-    return;
-  }
-
   // Gọi hàm từ file products.js để bốc thông tin sản phẩm
   const product = getProductById(id);
   if (!product) {
@@ -91,43 +83,77 @@ function calculateTotal() {
   return total;
 }
 
+function updateCartSummary() {
+  let totalCount = 0;
+  for (let i = 0; i < cart.length; i++) {
+    totalCount += cart[i].quantity;
+  }
+
+  const totalPriceEl = document.getElementById("totalPrice");
+  if (totalPriceEl) {
+    totalPriceEl.textContent = formatPrice(calculateTotal());
+  }
+
+  const summaryCount = document.getElementById("summaryCount");
+  if (summaryCount) summaryCount.textContent = totalCount;
+
+  const cartItemLabel = document.getElementById("cartItemLabel");
+  if (cartItemLabel) {
+    cartItemLabel.textContent = totalCount + " món";
+  }
+
+  const cartSummary = document.getElementById("cartSummary");
+  if (cartSummary) {
+    cartSummary.style.display = cart.length === 0 ? "none" : "block";
+  }
+}
+
 // 8. Hàm xuất danh sách sản phẩm giỏ hàng ra file cart.html (nếu thực khách đang mở trang giỏ hàng)
 function renderCart() {
   const container = document.getElementById("cartItems");
-  if (!container) return; // Nếu đang ở trang sản phẩm, bỏ qua khối này để không crash ứng dụng
+  if (!container) return;
 
   container.innerHTML = "";
 
   if (cart.length === 0) {
-    container.innerHTML =
-      "<p style='text-align:center; padding: 20px;'>Giỏ hàng đang trống!</p>";
-    const totalPriceEl = document.getElementById("totalPrice");
-    if (totalPriceEl) totalPriceEl.textContent = "0đ";
+    container.innerHTML = `
+      <div class="cart-empty">
+        <div class="cart-empty-icon">🛒</div>
+        <h3>Giỏ hàng đang trống</h3>
+        <p>Hãy chọn món ngon từ thực đơn và thêm vào giỏ nhé!</p>
+        <a class="btn-continue" href="products.html">Xem thực đơn</a>
+      </div>
+    `;
+    updateCartSummary();
     return;
   }
 
   for (let i = 0; i < cart.length; i++) {
     const item = cart[i];
     const subtotal = item.price * item.quantity;
+    const imageSrc = item.img || "assets/images/do an.png";
     const div = document.createElement("div");
     div.className = "cart-item";
     div.innerHTML = `
-            <p><strong>${item.name}</strong> x ${item.quantity} = ${formatPrice(subtotal)}</p>
-            <div class="cart-item-actions">
-                <button onclick="changeQuantity(${item.id}, -1)">-</button>
-                <button onclick="changeQuantity(${item.id}, 1)">+</button>
-                <button onclick="removeFromCart(${item.id})" style="color: red; margin-left: 10px;">Xóa</button>
-            </div>
-            <hr style="border: 0.5px solid #eee; margin: 10px 0;">
-        `;
+      <img class="cart-item-image" src="${imageSrc}" alt="${item.name}" />
+      <div class="cart-item-info">
+        <h3>${item.name}</h3>
+        <p class="cart-item-price">Đơn giá: ${formatPrice(item.price)}</p>
+        <p class="cart-item-subtotal">Thành tiền: ${formatPrice(subtotal)}</p>
+      </div>
+      <div class="cart-item-actions">
+        <div class="qty-control">
+          <button type="button" onclick="changeQuantity(${item.id}, -1)" aria-label="Giảm số lượng">−</button>
+          <span>${item.quantity}</span>
+          <button type="button" onclick="changeQuantity(${item.id}, 1)" aria-label="Tăng số lượng">+</button>
+        </div>
+        <button type="button" class="btn-remove" onclick="removeFromCart(${item.id})">Xóa món</button>
+      </div>
+    `;
     container.appendChild(div);
   }
 
-  const totalPriceEl = document.getElementById("totalPrice");
-  if (totalPriceEl) {
-    // Hàm formatPrice lấy từ file products.js kế thừa sang
-    totalPriceEl.textContent = formatPrice(calculateTotal());
-  }
+  updateCartSummary();
 }
 
 // 9. Hàm xử lý chuyển đổi dữ liệu sang trang giao dịch

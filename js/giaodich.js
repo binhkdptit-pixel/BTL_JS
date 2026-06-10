@@ -1,40 +1,53 @@
+//hàm tạo và hiển thị hóa đơn
 function generateInvoice() {
-    const user = JSON.parse(localStorage.getItem("currentUser"));
-    
-    // Kiểm tra xem người dùng đã đăng nhập chưa
-    if (!user) {
-        alert("⚠️ Vui lòng đăng nhập để xem hóa đơn!");
-        window.location.href = "login.html";
-        return;
-    }
+  const order = JSON.parse(localStorage.getItem("currentOrder"));
+  const user = JSON.parse(localStorage.getItem("currentUser"));
 
-    const order = JSON.parse(localStorage.getItem("currentOrder"));
-    
-    if (!order) {
-        window.location.href = "index.html"; 
-        return;
-    }
+  if (!order || order.length === 0) {
+    window.location.href = "cart.html";
+    return;
+  }
 
-    document.getElementById("customerName").textContent = user ? user.username : "Khách";
-    document.getElementById("invoiceDate").textContent = new Date().toLocaleString("vi-VN");
+  const invoiceId = "BBT-" + Date.now().toString().slice(-8);
+  document.getElementById("customerName").textContent = user
+    ? user.username
+    : "Khách";
+  document.getElementById("invoiceDate").textContent = new Date().toLocaleString(
+    "vi-VN",
+  );
+  document.getElementById("invoiceId").textContent = invoiceId;
+// tính tổng tiền và số lượng món ăn
+  let html = "";
+  let total = 0;
+  let itemCount = 0;
 
-    let html = "";
-    let total = 0;
+  order.forEach((item) => {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
+    itemCount += item.quantity;
 
-    order.forEach(item => {
-        const subtotal = item.price * item.quantity;
-        total += subtotal;
-        html += `<p>${item.name} x ${item.quantity} = ${formatPrice(subtotal)}</p>`;
-    });
+    html += `
+      <tr>
+        <td data-label="Món ăn">
+          <div class="item-name">${item.name}</div>
+          <div class="item-unit-price">Đơn giá: ${formatPrice(item.price)}</div>
+        </td>
+        <td class="col-qty" data-label="SL">${item.quantity}</td>
+        <td class="col-subtotal" data-label="Thành tiền">${formatPrice(subtotal)}</td>
+      </tr>
+    `;
+  });
 
-    document.getElementById("invoiceItems").innerHTML = html;
-    document.getElementById("invoiceTotal").textContent = formatPrice(total);
+  document.getElementById("invoiceItems").innerHTML = html;
+  document.getElementById("invoiceTotal").textContent = formatPrice(total);
+  document.getElementById("itemCount").textContent = itemCount;
 }
 
 function backToHome() {
-    localStorage.removeItem("currentOrder");
-    localStorage.removeItem("cart");
-    window.location.href = "index.html";
+  localStorage.removeItem("currentOrder");
+  localStorage.removeItem("cart");
+  window.location.href = "index.html";
 }
 
 document.addEventListener("DOMContentLoaded", generateInvoice);
+# lowkey đ có j viết  
