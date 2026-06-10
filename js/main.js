@@ -1,18 +1,20 @@
+// Cập nhật số lượng sản phẩm trong giỏ hàng
 function updateCartCount() {
   const cartCountElement = document.getElementById("cartCount");
   if (!cartCountElement) return;
-  
+
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   let count = 0;
   cart.forEach((item) => (count += item.quantity));
   cartCountElement.textContent = count;
 }
 
+//Định dạng số thành tiền Việt Nam
 function formatPrice(price) {
   return price.toLocaleString("vi-VN") + " VNĐ";
 }
 
-// Hàm kiểm tra đăng nhập và render header phù hợp
+// Hiển thị thông tin người dùng ở header
 function renderUserHeader() {
   const authSection = document.getElementById("authSection");
   if (!authSection) return;

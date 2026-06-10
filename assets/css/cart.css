@@ -115,6 +115,7 @@ body.cart-page {
   color: #888;
 }
 
+/* Hiển thị danh sách sản phẩm trong giỏ hàng */
 #cartItems {
   padding: 8px 24px;
 }
@@ -214,7 +215,7 @@ body.cart-page {
   color: #c62828;
 }
 
-/* Empty state */
+/* Hiển thị giỏ hàng trống */
 .cart-empty {
   text-align: center;
   padding: 56px 24px;
@@ -246,7 +247,9 @@ body.cart-page {
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .btn-continue:hover {
@@ -254,7 +257,7 @@ body.cart-page {
   transform: translateY(-2px);
 }
 
-/* Summary */
+/* Hiển thị thông tin thanh toán */
 .cart-summary {
   padding: 24px;
   background: #fff8f3;
@@ -305,7 +308,9 @@ body.cart-page {
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(255, 87, 34, 0.25);
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .btn-checkout:hover {
@@ -337,7 +342,7 @@ body.cart-page {
   color: #7db53f;
 }
 
-/* Responsive */
+/* GIAO DIỆN ĐIỆN THOẠI VÀ MÁY TÍNH BẢNG */
 @media (max-width: 640px) {
   .cart-header {
     flex-direction: column;

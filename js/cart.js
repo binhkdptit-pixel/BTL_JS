@@ -1,12 +1,12 @@
-// 1. Đồng bộ key lưu trữ chung trên LocalStorage là "cart"
+// 1. Lấy dữ liệu giỏ hàng từ LocalStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// 2. Hàm lưu trạng thái giỏ hàng hiện tại vào LocalStorage
+// 2. Lưu giỏ hàng hiện tại vào LocalStorage
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// 3. Hàm cập nhật số đếm hiển thị trên icon giỏ hàng ở thanh điều hướng
+// 3. Cập nhật số lượng món trên biểu tượng giỏ hàng
 function updateCartCount() {
   const cartCountElement =
     document.getElementById("cartCount") ||
@@ -20,9 +20,8 @@ function updateCartCount() {
   cartCountElement.textContent = totalCount;
 }
 
-// 4. Hàm chức năng chính: Thêm sản phẩm được chọn vào giỏ hàng
+// 4. Thêm sản phẩm vào giỏ hàng
 function addToCart(id) {
-  // Gọi hàm từ file products.js để bốc thông tin sản phẩm
   const product = getProductById(id);
   if (!product) {
     alert("Không tìm thấy sản phẩm!");
@@ -32,14 +31,13 @@ function addToCart(id) {
   let found = false;
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].id === id) {
-      cart[i].quantity += 1; // Nếu món ăn đã có sẵn, cộng thêm số lượng lên 1
+      cart[i].quantity += 1;
       found = true;
       break;
     }
   }
 
   if (!found) {
-    // Nếu là món mới hoàn toàn, sao chép đối tượng sản phẩm và đính kèm số lượng = 1
     cart.push({ ...product, quantity: 1 });
   }
 
@@ -48,7 +46,7 @@ function addToCart(id) {
   alert("🎉 " + product.name + " đã được thêm vào giỏ hàng thành công!");
 }
 
-// 5. Hàm xóa bỏ một món ăn ra khỏi giỏ hàng hẳn
+// 5. Xóa sản phẩm khỏi giỏ hàng
 function removeFromCart(id) {
   if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
     cart = cart.filter((item) => item.id !== id);
@@ -58,13 +56,13 @@ function removeFromCart(id) {
   }
 }
 
-// 6. Hàm tăng (+) hoặc giảm (-) số lượng món tại trang giỏ hàng
+// 6. Thay đổi số lượng sản phẩm trong giỏ hàng
 function changeQuantity(id, change) {
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].id === id) {
       cart[i].quantity += change;
       if (cart[i].quantity < 1) {
-        cart[i].quantity = 1; // Giới hạn số lượng tối thiểu phải là 1 món
+        cart[i].quantity = 1;
       }
       break;
     }
@@ -74,7 +72,7 @@ function changeQuantity(id, change) {
   updateCartCount();
 }
 
-// 7. Hàm tính tổng tiền của tất cả các món ăn trong giỏ
+// 7. Tính tổng tiền đơn hàng
 function calculateTotal() {
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
@@ -83,6 +81,7 @@ function calculateTotal() {
   return total;
 }
 
+// Cập nhật thông tin tổng tiền và số lượng món trong giỏ hàng
 function updateCartSummary() {
   let totalCount = 0;
   for (let i = 0; i < cart.length; i++) {
@@ -108,7 +107,7 @@ function updateCartSummary() {
   }
 }
 
-// 8. Hàm xuất danh sách sản phẩm giỏ hàng ra file cart.html (nếu thực khách đang mở trang giỏ hàng)
+// 9. Hiển thị danh sách sản phẩm trong giỏ hàng
 function renderCart() {
   const container = document.getElementById("cartItems");
   if (!container) return;
@@ -156,7 +155,7 @@ function renderCart() {
   updateCartSummary();
 }
 
-// 9. Hàm xử lý chuyển đổi dữ liệu sang trang giao dịch
+// 10. Chuyển sang trang thanh toán
 function checkout() {
   if (cart.length === 0) {
     alert("Giỏ hàng đang trống!");
@@ -166,7 +165,7 @@ function checkout() {
   }
 }
 
-// 10. Lắng nghe kích hoạt khi load trang
+// 11. Khởi tạo dữ liệu khi trang được tải xong
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof checkLoginStatus === "function") {
     checkLoginStatus();

@@ -97,7 +97,7 @@ nav#authSection {
   color: #f0fce3;
 }
 
-/* 4. Hero Section */
+/* 4. HERO SECTION */
 .hero {
   height: 450px;
   background:
@@ -250,9 +250,7 @@ nav#authSection {
   background: #6b9e2f;
 }
 
-/* ==========================================
-   7. GIỎ HÀNG THÀNH PHẦN (CART DETAILS)
-   ========================================== */
+/* 7. THÀNH PHẦN GIỎ HÀNG */
 #cartCount {
   background: #ff5722;
   color: white;
@@ -384,7 +382,7 @@ footer {
   color: #aaa;
 }
 
-/* 9. Responsive */
+/* 9. GIAO DIỆN ĐIỆN THOẠI VÀ MÁY TÍNH BẢNG */
 @media (max-width: 768px) {
   header {
     flex-direction: column;

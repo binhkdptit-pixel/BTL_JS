@@ -1,4 +1,4 @@
-//hàm tạo và hiển thị hóa đơn
+// Tạo và hiển thị hóa đơn
 function generateInvoice() {
   const order = JSON.parse(localStorage.getItem("currentOrder"));
   const user = JSON.parse(localStorage.getItem("currentUser"));
@@ -12,11 +12,10 @@ function generateInvoice() {
   document.getElementById("customerName").textContent = user
     ? user.username
     : "Khách";
-  document.getElementById("invoiceDate").textContent = new Date().toLocaleString(
-    "vi-VN",
-  );
+  document.getElementById("invoiceDate").textContent =
+    new Date().toLocaleString("vi-VN");
   document.getElementById("invoiceId").textContent = invoiceId;
-// tính tổng tiền và số lượng món ăn
+  // tính tổng tiền và số lượng món ăn
   let html = "";
   let total = 0;
   let itemCount = 0;
@@ -43,6 +42,7 @@ function generateInvoice() {
   document.getElementById("itemCount").textContent = itemCount;
 }
 
+// Xóa hóa đơn, làm sạch giỏ hàng khi quay về trang chủ
 function backToHome() {
   localStorage.removeItem("currentOrder");
   localStorage.removeItem("cart");
@@ -50,4 +50,3 @@ function backToHome() {
 }
 
 document.addEventListener("DOMContentLoaded", generateInvoice);
-# lowkey đ có j viết  

@@ -235,11 +235,13 @@ const products = [
   },
 ];
 
-//2. HÀM TIỆN ÍCH BỔ TRỢ
+//2. HÀM BỔ TRỢ
+
+//Định dạng số thành tiền Việt Nam
 function formatPrice(price) {
   return price.toLocaleString("vi-VN") + "đ";
 }
-
+//Lấy sản phẩm theo ID
 function getProductById(id) {
   for (let i = 0; i < products.length; i++) {
     if (products[i].id === id) {
@@ -249,7 +251,9 @@ function getProductById(id) {
   return null;
 }
 
-//3. CƠ CHẾ HIỂN THỊ SẢN PHẨM THEO DANH MỤC
+//3. HIỂN THỊ SẢN PHẨM THEO DANH MỤC
+
+//Hiển thị sản phẩm lên giao diện
 function renderProducts(filteredProducts) {
   const container = document.getElementById("productList");
   if (!container) return;
@@ -270,7 +274,7 @@ function renderProducts(filteredProducts) {
     else if (item.category === "dessert") dessertGroup.push(item);
     else if (item.category === "drink") drinkGroup.push(item);
   }
-
+  // Hàm tạo HTML cho từng nhóm sản phẩm
   function createCategoryHTML(titleElement, groupList) {
     if (groupList.length === 0) return "";
 
@@ -398,7 +402,7 @@ function renderUserHeader() {
   }
 }
 
-//6. SỰ KIỆN KHỞI CHẠY TRANG
+//6. KHỞI CHẠY TRANG
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts(products);
   renderUserHeader();

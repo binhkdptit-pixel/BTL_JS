@@ -1,6 +1,6 @@
 /* 1. RESET CHUNG, CẤU HÌNH BODY VÀ HIỆU ỨNG CUỘN */
 html {
-  scroll-behavior: smooth; /* Kích hoạt cuộn mượt mà khi bấm menu điều hướng */
+  scroll-behavior: smooth;
 }
 
 * {
@@ -19,7 +19,7 @@ header {
   background: #e8efdb;
   padding: 15px 40px;
   display: flex;
-  justify-content: space-between; /* Đẩy chữ BBT sang trái, ô tìm kiếm ra giữa, nav sang phải */
+  justify-content: space-between;
   align-items: center;
   gap: 20px;
 }
@@ -27,7 +27,7 @@ header {
 header h1 {
   color: #6b9e2f;
   font-size: 32px;
-  flex-shrink: 0; /* Giữ chữ BBT không bị bóp méo khi thu nhỏ màn hình */
+  flex-shrink: 0;
 }
 
 /* Cấu hình ô tìm kiếm nằm cạnh chữ BBT */
@@ -39,7 +39,7 @@ header h1 {
   padding: 6px 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   width: 100%;
-  max-width: 400px; /* Độ rộng vừa vặn, đẹp mắt cho thanh search */
+  max-width: 400px;
   margin: 0 20px;
 }
 
@@ -75,30 +75,28 @@ nav a {
 
 /* 3. THANH MENU ĐIỀU HƯỚNG (MENU BAR XANH LÁ) */
 .menu-bar {
-  list-style-type: none; /* Xóa dấu chấm tròn mặc định của thẻ ul/li */
+  list-style-type: none;
   background: #7db53f;
-  display: flex;         /* Dàn ngang các mục trên cùng 1 hàng */
-  justify-content: center; /* Căn giữa toàn bộ menu */
+  display: flex;
+  justify-content: center;
   margin: 0;
   padding: 0;
 }
 
 .menu-bar li a {
   display: block;
-  color: white;          /* Đổi màu chữ thành trắng */
+  color: white;
   text-align: center;
-  padding: 15px 25px;    /* Tạo khoảng đệm giúp nút to và dễ bấm hơn */
-  text-decoration: none; /* Bỏ gạch chân mặc định của thẻ link */
+  padding: 15px 25px;
+  text-decoration: none;
   font-weight: bold;
   transition: all 0.2s ease;
 }
 
-/* Hiệu ứng khi người dùng di chuột vào menu */
 .menu-bar li a:hover {
-  background-color: #4e8710; /* Nền chuyển xanh đậm */
-  color: #f0fce3;            /* Chữ sáng lên */
+  background-color: #4e8710;
+  color: #f0fce3;
 }
-
 
 /* 4. HERO SECTION */
 .hero {
@@ -160,16 +158,13 @@ nav a {
   font-size: 24px;
   margin-bottom: 15px;
   padding-left: 5px;
-  border-left: 4px solid #7db53f; /* Vệt sọc đứng màu xanh lá cạnh tên nhóm */
+  border-left: 4px solid #7db53f;
 }
 
 /* CẤU TRÚC LƯỚI HIỂN THỊ SẢN PHẨM */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(250px, 1fr)
-  ); /* auto-fill giúp giữ đúng tỷ lệ card khi hàng ít món */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 25px;
   justify-content: start;
 }
@@ -184,7 +179,7 @@ nav a {
 }
 
 .product-card:hover {
-  transform: translateY(-5px); /* Hiệu ứng nhấc nhẹ thẻ khi hover */
+  transform: translateY(-5px);
 }
 
 .product-card img {

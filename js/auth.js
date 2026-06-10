@@ -1,6 +1,7 @@
-//khởi tạo biến lưu thông tin người dùng hiện tại
+// Lưu thông tin người dùng đang đăng nhập
 let currentUser = null;
 
+// Xử lý đăng ký tài khoản mới
 function registerUser(username, password) {
   if (!username || !password) {
     alert("Vui lòng nhập đầy đủ thông tin!");
@@ -16,7 +17,8 @@ function registerUser(username, password) {
   alert("Đăng ký thành công!");
   window.location.href = "login.html";
 }
-//hàm đăng nhập
+
+// Xử lý đăng nhập
 function loginUser(username, password) {
   let users = JSON.parse(localStorage.getItem("users")) || [];
   let user = users.find(
@@ -31,12 +33,14 @@ function loginUser(username, password) {
     alert("Sai tài khoản hoặc mật khẩu!");
   }
 }
-//hàm đăng xuất
+
+//Xử lý đăng xuất
 function logout() {
   localStorage.removeItem("currentUser");
   window.location.href = "index.html";
 }
-//hàm kiểm tra trạng thái đăng nhập
+
+// Kiểm tra xem người dùng đã đăng nhập chưa
 function checkLoginStatus() {
   let user = JSON.parse(localStorage.getItem("currentUser"));
   if (user) {
