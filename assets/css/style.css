@@ -74,26 +74,29 @@ nav a {
 }
 
 /* 3. THANH MENU ĐIỀU HƯỚNG (MENU BAR XANH LÁ) */
-
 .menu-bar {
+  list-style-type: none; /* Xóa dấu chấm tròn mặc định của thẻ ul/li */
   background: #7db53f;
-  padding: 15px;
+  display: flex;         /* Dàn ngang các mục trên cùng 1 hàng */
+  justify-content: center; /* Căn giữa toàn bộ menu */
+  margin: 0;
+  padding: 0;
+}
+
+.menu-bar li a {
+  display: block;
+  color: white;          /* Đổi màu chữ thành trắng */
   text-align: center;
-}
-  
-
-
-.menu-bar button {
-  color: rgb(226, 0, 0);
-  text-decoration: none;
-  margin: 0 20px;
+  padding: 15px 25px;    /* Tạo khoảng đệm giúp nút to và dễ bấm hơn */
+  text-decoration: none; /* Bỏ gạch chân mặc định của thẻ link */
   font-weight: bold;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.menu-bar a:hover {
-  color: #f0fce3;/* Đổi màu chữ nhẹ khi di chuột vào */
-
+/* Hiệu ứng khi người dùng di chuột vào menu */
+.menu-bar li a:hover {
+  background-color: #4e8710; /* Nền chuyển xanh đậm */
+  color: #f0fce3;            /* Chữ sáng lên */
 }
 
 

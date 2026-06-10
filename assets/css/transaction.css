@@ -1,0 +1,142 @@
+/* Thiết lập layout cho khu vực hóa đơn */
+.invoice-main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Thẻ bọc hóa đơn đổ bóng, bo góc giống thiết kế của khoảng About/Product Card */
+.invoice-container {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.invoice-title {
+  font-size: 28px;
+  color: #6b9e2f;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.invoice-brand {
+  font-family: "Pacifico", cursive;
+  text-align: center;
+  color: #7db53f;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Thông tin khách hàng & ngày tháng */
+.invoice-info {
+  border-bottom: 2px dashed #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Khu vực hiển thị danh sách các món ăn */
+.invoice-items-box {
+  min-height: 100px;
+  font-size: 16px;
+}
+
+.invoice-items-box p {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Khối tổng tiền nổi bật bằng màu cam thương mại điện tử */
+.invoice-total-box {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 2px dashed #ddd;
+  text-align: right;
+}
+
+.invoice-total-box h2 {
+  font-size: 22px;
+  color: #333;
+}
+
+#invoiceTotal {
+  color: #ff5722;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* Các nút chức năng hành động */
+.invoice-actions {
+  margin-top: 35px;
+  display: flex;
+  gap: 15px;
+}
+
+.invoice-actions button {
+  flex: 1;
+  min-height: 46px;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-print {
+  background: linear-gradient(135deg, #7db53f, #6b9e2f);
+  color: white;
+  box-shadow: 0 4px 12px rgba(107, 158, 47, 0.3);
+}
+
+.btn-print:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(107, 158, 47, 0.5);
+}
+
+.btn-home {
+  background: #f0f0f0;
+  color: #555;
+  border: 1px solid #ccc !important;
+}
+
+.btn-home:hover {
+  background: #e0e0e0;
+  color: #333;
+}
+
+/* ==========================================
+   CẤU HÌNH IN (PRINT MEDIA)
+   Quan trọng: Khi bấm in, chỉ giữ lại thẻ hóa đơn, ẩn mọi thành phần trang web
+   ========================================== */
+@media print {
+  header, 
+  .menu-bar, 
+  footer, 
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+  }
+  
+  .invoice-main {
+    padding: 0;
+  }
+  
+  .invoice-container {
+    box-shadow: none;
+    padding: 0;
+    max-width: 100%;
+  }
+}
