@@ -20,6 +20,7 @@
       </nav>
     </header>
 
+    <!-- Hóa đơn thanh toán -->
     <main class="invoice-main">
       <article class="invoice-card">
         <div class="invoice-top">
@@ -36,6 +37,7 @@
           <div class="meta-item"><span>Mã đơn hàng</span><strong id="invoiceId">—</strong></div>
         </div>
 
+        <!-- Chi tiết đơn hàng -->
         <div class="invoice-table-wrap">
           <table class="invoice-table" aria-label="Chi tiết đơn hàng">
             <thead>
@@ -45,6 +47,7 @@
           </table>
         </div>
 
+        <!-- Tổng kết hóa đơn -->
         <div class="invoice-summary">
           <div class="invoice-total-box">
             <div class="invoice-total-row"><span>Số món</span><strong id="itemCount">0</strong></div>
@@ -52,6 +55,7 @@
           </div>
         </div>
 
+        <!-- Hướng dẫn thanh toán -->
         <div class="invoice-actions no-print">
           <button class="btn btn-print" type="button" onclick="window.print()">🖨️ In hóa đơn</button>
           <button class="btn btn-home" type="button" onclick="backToHome()">🏠 Về trang chủ</button>
@@ -67,6 +71,7 @@
       <p>&copy; 2026 <strong>BBT Fast Food</strong>. All rights reserved.</p>
     </footer>
 
+    <!-- Các script -->
     <script src="js/products.js"></script>
     <script src="js/giaodich.js"></script>
   </body>

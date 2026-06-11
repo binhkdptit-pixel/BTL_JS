@@ -114,10 +114,7 @@
   color: #333;
 }
 
-/* ==========================================
-   CẤU HÌNH IN (PRINT MEDIA)
-   Quan trọng: Khi bấm in, chỉ giữ lại thẻ hóa đơn, ẩn mọi thành phần trang web
-   ========================================== */
+/* Giao diện in ấn cho hóa đơn */
 @media print {
   header, 
   .menu-bar, 

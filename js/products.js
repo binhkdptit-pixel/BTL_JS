@@ -1,6 +1,4 @@
-// =============================================
-// 1. DỮ LIỆU SẢN PHẨM
-// =============================================
+//Dữ liệu sản phẩm
 const products = [
   // Món chính
   { id: 1,  name: "Cơm niêu",              price: 49000, img: "https://comnieuthienly.com/_next/image?url=https%3A%2F%2Fhos.comnieuthienly.com%2Fimages%2Fwebp%2F67dbda9cbdc46c5dbc693e0c.jpg&w=3840&q=75", category: "main" },
@@ -45,23 +43,18 @@ const products = [
   { id: 32, name: "Nước ép cam",           price: 25000, img: "https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2023/11/7/uong-nuoc-cam-16993504421751885406385.jpg", category: "drink" },
 ];
 
-// =============================================
-// 2. HÀM BỔ TRỢ
-// =============================================
 
-// Định dạng giá tiền
+// Định dạng giá tiền cho dễ đọc
 function formatPrice(price) {
   return price.toLocaleString("vi-VN") + "đ";
 }
 
-// Lấy sản phẩm theo ID — dùng bởi cart.js
+// Lấy thông tin sản phẩm theo ID
 function getProductById(id) {
   return products.find((p) => p.id === id) || null;
 }
 
-// =============================================
-// 3. HIỂN THỊ SẢN PHẨM THEO DANH MỤC
-// =============================================
+//Hiển thị sản phẩm theo danh mục, nhóm món ăn
 function renderProducts(list) {
   const container = document.getElementById("productList");
   if (!container) return;
@@ -108,9 +101,7 @@ function renderProducts(list) {
   container.innerHTML = html;
 }
 
-// =============================================
-// 4. TÌM KIẾM
-// =============================================
+// Tìm kiếm sản phẩm theo tên khi người dùng nhập vào ô tìm kiếm
 function searchProducts() {
   const keyword =
     document.getElementById("searchInput")?.value.toLowerCase().trim() || "";
@@ -120,9 +111,7 @@ function searchProducts() {
   renderProducts(filtered);
 }
 
-// =============================================
-// 5. KHỞI CHẠY KHI TRANG LOAD
-// =============================================
+// Khi trang được tải, hiển thị tất cả sản phẩm và thiết lập sự kiện tìm kiếm
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts(products);
   document.getElementById("searchInput")?.addEventListener("input", searchProducts);

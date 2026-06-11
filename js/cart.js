@@ -1,10 +1,12 @@
 // Lấy giỏ hàng từ localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// Lưu giỏ hàng vào localStorage
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+// Cập nhật số lượng sản phẩm trên icon giỏ hàng
 function updateCartCount() {
   const el =
     document.getElementById("cartCount") ||
@@ -24,7 +26,7 @@ function addToCart(id) {
     alert("Không tìm thấy sản phẩm!");
     return;
   }
-
+// Kiểm tra nếu món đã có trong giỏ, nếu có thì tăng số lượng, nếu chưa thì thêm mới
   const existing = cart.find((i) => i.id === id);
   if (existing) {
     existing.quantity += 1;
@@ -37,6 +39,7 @@ function addToCart(id) {
   alert("🎉 " + product.name + " đã được thêm vào giỏ hàng!");
 }
 
+// Xóa món khỏi giỏ hàng
 function removeFromCart(id) {
   if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
     cart = cart.filter((item) => item.id !== id);
@@ -46,6 +49,7 @@ function removeFromCart(id) {
   }
 }
 
+// Thay đổi số lượng món trong giỏ hàng
 function changeQuantity(id, change) {
   const item = cart.find((i) => i.id === id);
   if (item) {
@@ -60,6 +64,7 @@ function calculateTotal() {
   return cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
 }
 
+// Đồng bộ hóa dữ liệu giỏ hàng
 function updateCartSummary() {
   const totalCount = cart.reduce((s, i) => s + i.quantity, 0);
 
@@ -76,6 +81,7 @@ function updateCartSummary() {
   if (cartSummary) cartSummary.style.display = cart.length === 0 ? "none" : "block";
 }
 
+// Render giỏ hàng
 function renderCart() {
   const container = document.getElementById("cartItems");
   if (!container) return;
@@ -93,6 +99,7 @@ function renderCart() {
     return;
   }
 
+  // Nếu có món trong giỏ, hiển thị danh sách
   container.innerHTML = "";
   cart.forEach((item) => {
     const subtotal = item.price * item.quantity;
@@ -120,6 +127,7 @@ function renderCart() {
   updateCartSummary();
 }
 
+// Thanh toán đơn hàng
 function checkout() {
   if (cart.length === 0) {
     alert("Giỏ hàng đang trống!");

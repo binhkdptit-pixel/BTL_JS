@@ -1,4 +1,4 @@
-/* Trang hóa đơn - BBT Quán Ăn Việt */
+/* CSS cho trang hóa đơn */
 html {
   scroll-behavior: smooth;
 }
@@ -308,7 +308,7 @@ body.invoice-page {
   line-height: 1.6;
 }
 
-/* Footer */
+/* Chân trang */
 .invoice-footer {
   background: #333;
   color: #ccc;
@@ -362,7 +362,7 @@ body.invoice-page {
   }
 }
 
-/* Responsive */
+/* Giao diện cho mobile */
 @media (max-width: 720px) {
   .invoice-header {
     flex-direction: column;
