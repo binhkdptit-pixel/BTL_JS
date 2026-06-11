@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="assets/css/index.css" />
   </head>
   <body class="home-page">
+
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="BBT trang chủ">BBT</a>
-
       <nav class="site-nav" aria-label="Điều hướng chính">
         <a href="products.html">Thực đơn</a>
         <a href="#mon-ngon">Món nổi bật</a>
@@ -18,13 +18,18 @@
         <a href="#pho-bien">Phổ biến 👑</a>
         <a href="#gioi-thieu">Giới thiệu</a>
         <a href="#footer">Liên hệ</a>
-        <a href="login.html">Đăng nhập</a>
-        <a class="nav-action" href="register.html">Đăng ký</a>
+        <!-- Auth sẽ được render bằng JS -->
+        <span id="authSection"></span>
       </nav>
     </header>
 
     <main>
+
+      <!-- ===== HERO với VIDEO NỀN ===== -->
       <section class="home-hero" aria-label="Giới thiệu BBT Quán Ăn Việt">
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="assets/videos/854216-hd_1920_1080_25fps.mp4" type="video/mp4" />
+        </video>
         <div class="hero-shade"></div>
         <div class="hero-inner">
           <p class="hero-kicker">BBT Quán Ăn Việt</p>
@@ -33,12 +38,10 @@
             Cơm nóng, món Việt đậm vị, đồ uống mát lành và tráng miệng ngọt nhẹ
             cho bữa ăn trọn vẹn hơn mỗi ngày.
           </p>
-
           <div class="hero-actions">
             <a class="btn btn-primary" href="products.html">Xem thực đơn</a>
             <a class="btn btn-secondary" href="#mon-ngon">Khám phá món ngon</a>
           </div>
-
           <div class="hero-stats" aria-label="Thông tin nhanh">
             <span><strong>32+</strong> món ăn</span>
             <span><strong>15-30</strong> phút giao</span>
@@ -47,197 +50,119 @@
         </div>
       </section>
 
+      <!-- ===== MÓN NỔI BẬT ===== -->
       <section id="mon-ngon" class="featured-dishes" aria-label="Món nổi bật">
         <div class="section-heading">
           <p>Gợi ý hôm nay</p>
           <h2>Những món ăn được yêu thích</h2>
         </div>
-
         <div class="dish-marquee" aria-label="Dải ảnh món ăn chuyển động">
           <div class="dish-track">
             <div class="dish-set">
               <article class="dish-card">
-                <img
-                  class="dish-photo dish-photo-1"
-                  src="assets/images/do an.png"
-                  alt="Nem rán giòn"
-                />
+                <img class="dish-photo dish-photo-1" src="assets/images/do an.png" alt="Nem rán giòn" />
                 <div class="dish-info">
                   <h3>Nem rán giòn</h3>
                   <p>Vỏ vàng ruộm, nhân đậm vị, hợp bữa trưa lẫn bữa tối.</p>
                 </div>
               </article>
-
               <article class="dish-card">
-                <img
-                  class="dish-photo dish-photo-2"
-                  src="assets/images/do an.png"
-                  alt="Cơm chiên hải sản"
-                />
+                <img class="dish-photo dish-photo-2" src="assets/images/do an.png" alt="Cơm chiên hải sản" />
                 <div class="dish-info">
                   <h3>Cơm chiên hải sản</h3>
                   <p>Hạt cơm tơi, vị thơm béo, thêm tôm và rau xanh cân vị.</p>
                 </div>
               </article>
-
               <article class="dish-card">
-                <img
-                  class="dish-photo dish-photo-3"
-                  src="assets/images/do an.png"
-                  alt="Phở bò nóng"
-                />
+                <img class="dish-photo dish-photo-3" src="assets/images/do an.png" alt="Phở bò nóng" />
                 <div class="dish-info">
                   <h3>Phở bò nóng</h3>
                   <p>Nước dùng thanh, thịt mềm, ăn là ấm bụng ngay.</p>
                 </div>
               </article>
-
               <article class="dish-card">
-                <img
-                  class="dish-photo dish-photo-4"
-                  src="assets/images/do an.png"
-                  alt="Gỏi cuốn tôm thịt"
-                />
+                <img class="dish-photo dish-photo-4" src="assets/images/do an.png" alt="Gỏi cuốn tôm thịt" />
                 <div class="dish-info">
                   <h3>Gỏi cuốn tôm thịt</h3>
                   <p>Tươi, nhẹ, nhiều rau, chấm cùng nước sốt vừa miệng.</p>
                 </div>
               </article>
-
               <article class="dish-card">
-                <img
-                  class="dish-photo dish-photo-5"
-                  src="assets/images/do an.png"
-                  alt="Salad tôm rau củ"
-                />
+                <img class="dish-photo dish-photo-5" src="assets/images/do an.png" alt="Salad tôm rau củ" />
                 <div class="dish-info">
                   <h3>Salad tôm rau củ</h3>
                   <p>Màu sắc bắt mắt, vị giòn mát cho ngày cần ăn nhẹ.</p>
                 </div>
               </article>
             </div>
-
+            <!-- bản clone cho marquee loop -->
             <div class="dish-set" aria-hidden="true">
               <article class="dish-card">
                 <img class="dish-photo dish-photo-1" src="assets/images/do an.png" alt="" />
-                <div class="dish-info">
-                  <h3>Nem rán giòn</h3>
-                  <p>Vỏ vàng ruộm, nhân đậm vị, hợp bữa trưa lẫn bữa tối.</p>
-                </div>
+                <div class="dish-info"><h3>Nem rán giòn</h3><p>Vỏ vàng ruộm, nhân đậm vị, hợp bữa trưa lẫn bữa tối.</p></div>
               </article>
-
               <article class="dish-card">
                 <img class="dish-photo dish-photo-2" src="assets/images/do an.png" alt="" />
-                <div class="dish-info">
-                  <h3>Cơm chiên hải sản</h3>
-                  <p>Hạt cơm tơi, vị thơm béo, thêm tôm và rau xanh cân vị.</p>
-                </div>
+                <div class="dish-info"><h3>Cơm chiên hải sản</h3><p>Hạt cơm tơi, vị thơm béo, thêm tôm và rau xanh cân vị.</p></div>
               </article>
-
               <article class="dish-card">
                 <img class="dish-photo dish-photo-3" src="assets/images/do an.png" alt="" />
-                <div class="dish-info">
-                  <h3>Phở bò nóng</h3>
-                  <p>Nước dùng thanh, thịt mềm, ăn là ấm bụng ngay.</p>
-                </div>
+                <div class="dish-info"><h3>Phở bò nóng</h3><p>Nước dùng thanh, thịt mềm, ăn là ấm bụng ngay.</p></div>
               </article>
-
               <article class="dish-card">
                 <img class="dish-photo dish-photo-4" src="assets/images/do an.png" alt="" />
-                <div class="dish-info">
-                  <h3>Gỏi cuốn tôm thịt</h3>
-                  <p>Tươi, nhẹ, nhiều rau, chấm cùng nước sốt vừa miệng.</p>
-                </div>
+                <div class="dish-info"><h3>Gỏi cuốn tôm thịt</h3><p>Tươi, nhẹ, nhiều rau, chấm cùng nước sốt vừa miệng.</p></div>
               </article>
-
               <article class="dish-card">
                 <img class="dish-photo dish-photo-5" src="assets/images/do an.png" alt="" />
-                <div class="dish-info">
-                  <h3>Salad tôm rau củ</h3>
-                  <p>Màu sắc bắt mắt, vị giòn mát cho ngày cần ăn nhẹ.</p>
-                </div>
+                <div class="dish-info"><h3>Salad tôm rau củ</h3><p>Màu sắc bắt mắt, vị giòn mát cho ngày cần ăn nhẹ.</p></div>
               </article>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- ===== GIỚI THIỆU ===== -->
       <section id="gioi-thieu" class="about-restaurant" aria-label="Giới thiệu về quán">
         <div class="section-heading">
           <p>Về BBT</p>
           <h2>Quán ăn Việt gần PTIT, ngon – sạch – đúng giá</h2>
         </div>
-
         <div class="about-grid">
           <article class="about-card">
             <span class="about-icon" aria-hidden="true">🍲</span>
             <h3>Món ăn</h3>
-            <p>
-              BBT chuyên các món Việt quen thuộc: cơm mặn, canh nóng, rau xanh,
-              tráng miệng và đồ uống mát. Thực đơn được cập nhật thường xuyên,
-              giá phù hợp sinh viên, phù hợp bữa trưa nhanh sau giờ học hay bữa
-              tối sum họp nhẹ nhàng.
-            </p>
+            <p>BBT chuyên các món Việt quen thuộc: cơm mặn, canh nóng, rau xanh, tráng miệng và đồ uống mát. Thực đơn được cập nhật thường xuyên, giá phù hợp sinh viên.</p>
           </article>
-
           <article class="about-card">
             <span class="about-icon" aria-hidden="true">👨‍🍳</span>
             <h3>Đầu bếp</h3>
-            <p>
-              Đội ngũ đầu bếp có kinh nghiệm nấu món gia đình và món quán phố,
-              ưu tiên vị thanh, ít dầu mỡ và trình bày gọn gàng. Mỗi món đều được
-              nấu theo đơn khi khách đặt để đảm bảo nóng và giữ trọn hương vị.
-            </p>
+            <p>Đội ngũ đầu bếp có kinh nghiệm nấu món gia đình và món quán phố, ưu tiên vị thanh, ít dầu mỡ. Mỗi món đều được nấu theo đơn khi khách đặt.</p>
           </article>
-
           <article class="about-card">
             <span class="about-icon" aria-hidden="true">🥬</span>
             <h3>Nguyên liệu</h3>
-            <p>
-              Rau củ, thịt cá và gia vị được nhập mỗi ngày từ chợ đầu mối gần khu
-              vực. Quán kiểm tra độ tươi trước khi chế biến, hạn chế đồ đông lạnh,
-              ưu tiên nguyên liệu trong mùa để món ăn vừa ngon vừa an toàn.
-            </p>
+            <p>Rau củ, thịt cá và gia vị được nhập mỗi ngày từ chợ đầu mối gần khu vực. Quán kiểm tra độ tươi trước khi chế biến, hạn chế đồ đông lạnh.</p>
           </article>
         </div>
       </section>
 
+      <!-- ===== CHỌN NHANH ===== -->
       <section class="quick-menu" aria-label="Danh mục món ăn">
         <div class="section-heading">
           <p>Chọn nhanh</p>
           <h2>Bữa nào cũng có món hợp gu</h2>
         </div>
-
         <div class="category-grid">
-          <a class="category-item" href="products.html#menu">
-            <span>01</span>
-            <h3>Món chính</h3>
-            <p>Cơm, cá, thịt và các món mặn quen vị gia đình.</p>
-          </a>
-          <a class="category-item" href="products.html#menu">
-            <span>02</span>
-            <h3>Món rau</h3>
-            <p>Rau xào, rau luộc, salad tươi cho bữa ăn cân bằng.</p>
-          </a>
-          <a class="category-item" href="products.html#menu">
-            <span>03</span>
-            <h3>Món canh</h3>
-            <p>Canh nóng thanh vị, dễ ăn và hợp mọi phần cơm.</p>
-          </a>
-          <a class="category-item" href="products.html#menu">
-            <span>04</span>
-            <h3>Tráng miệng</h3>
-            <p>Hoa quả, kem, pudding và món ngọt nhẹ sau bữa ăn.</p>
-          </a>
-          <a class="category-item" href="products.html#menu">
-            <span>05</span>
-            <h3>Đồ uống</h3>
-            <p>Nước ngọt, trà chanh, nước ép mát lạnh đi cùng món ngon.</p>
-          </a>
+          <a class="category-item" href="products.html#menu"><span>01</span><h3>Món chính</h3><p>Cơm, cá, thịt và các món mặn quen vị gia đình.</p></a>
+          <a class="category-item" href="products.html#menu"><span>02</span><h3>Món rau</h3><p>Rau xào, rau luộc, salad tươi cho bữa ăn cân bằng.</p></a>
+          <a class="category-item" href="products.html#menu"><span>03</span><h3>Món canh</h3><p>Canh nóng thanh vị, dễ ăn và hợp mọi phần cơm.</p></a>
+          <a class="category-item" href="products.html#menu"><span>04</span><h3>Tráng miệng</h3><p>Hoa quả, kem, pudding và món ngọt nhẹ sau bữa ăn.</p></a>
+          <a class="category-item" href="products.html#menu"><span>05</span><h3>Đồ uống</h3><p>Nước ngọt, trà chanh, nước ép mát lạnh đi cùng món ngon.</p></a>
         </div>
       </section>
 
-      <!-- ===== SECTION SALE (THÊM MỚI) ===== -->
+      <!-- ===== SECTION SALE ===== -->
       <section id="khuyen-mai" class="sale-section" aria-label="Ưu đãi hôm nay">
         <div class="section-heading">
           <p>Ưu đãi đặc biệt</p>
@@ -249,10 +174,7 @@
             <img src="https://comnieuthienly.com/_next/image?url=https%3A%2F%2Fhos.comnieuthienly.com%2Fimages%2Fwebp%2F67dbda9cbdc46c5dbc693e0c.jpg&w=3840&q=75" alt="Cơm niêu" />
             <div class="sale-info">
               <h3>Cơm niêu</h3>
-              <div class="sale-prices">
-                <span class="price-old">49.000đ</span>
-                <span class="price-new">39.200đ</span>
-              </div>
+              <div class="sale-prices"><span class="price-old">49.000đ</span><span class="price-new">39.200đ</span></div>
               <a class="btn-sale" href="products.html">Đặt ngay</a>
             </div>
           </article>
@@ -261,10 +183,7 @@
             <img src="https://cooponline.vn/tin-tuc/wp-content/uploads/2025/12/cach-lam-nem-ran-mien-bac-chuan-vi-gion-lau-ngay-tet.jpg" alt="Nem rán" />
             <div class="sale-info">
               <h3>Nem rán giòn</h3>
-              <div class="sale-prices">
-                <span class="price-old">55.000đ</span>
-                <span class="price-new">46.750đ</span>
-              </div>
+              <div class="sale-prices"><span class="price-old">55.000đ</span><span class="price-new">46.750đ</span></div>
               <a class="btn-sale" href="products.html">Đặt ngay</a>
             </div>
           </article>
@@ -273,10 +192,7 @@
             <img src="https://i-giadinh.vnecdn.net/2023/04/25/Thanh-pham-1-1-7239-1682395675.jpg" alt="Canh chua cá lóc" />
             <div class="sale-info">
               <h3>Canh chua cá lóc</h3>
-              <div class="sale-prices">
-                <span class="price-old">59.000đ</span>
-                <span class="price-new">44.250đ</span>
-              </div>
+              <div class="sale-prices"><span class="price-old">59.000đ</span><span class="price-new">44.250đ</span></div>
               <a class="btn-sale" href="products.html">Đặt ngay</a>
             </div>
           </article>
@@ -285,10 +201,7 @@
             <img src="https://cdn.tgdd.vn/2020/07/CookProduct/41-1200x676.jpg" alt="Kem" />
             <div class="sale-info">
               <h3>Kem tráng miệng</h3>
-              <div class="sale-prices">
-                <span class="price-old">20.000đ</span>
-                <span class="price-new">18.000đ</span>
-              </div>
+              <div class="sale-prices"><span class="price-old">20.000đ</span><span class="price-new">18.000đ</span></div>
               <a class="btn-sale" href="products.html">Đặt ngay</a>
             </div>
           </article>
@@ -297,10 +210,7 @@
             <img src="https://i.ytimg.com/vi/VeHk-RYqmNM/maxresdefault.jpg" alt="Tôm rang thịt" />
             <div class="sale-info">
               <h3>Tôm rang thịt</h3>
-              <div class="sale-prices">
-                <span class="price-old">55.000đ</span>
-                <span class="price-new">44.000đ</span>
-              </div>
+              <div class="sale-prices"><span class="price-old">55.000đ</span><span class="price-new">44.000đ</span></div>
               <a class="btn-sale" href="products.html">Đặt ngay</a>
             </div>
           </article>
@@ -309,19 +219,15 @@
             <img src="https://bizweb.dktcdn.net/100/514/431/products/nuoc-ngot-coca-cola-lon-320ml-202304131107525481.jpg?v=1716431193590" alt="Coca-Cola" />
             <div class="sale-info">
               <h3>Coca-Cola</h3>
-              <div class="sale-prices">
-                <span class="price-old">15.000đ</span>
-                <span class="price-new">Mua 2 tặng 1</span>
-              </div>
+              <div class="sale-prices"><span class="price-old">15.000đ</span><span class="price-new">Mua 2 tặng 1</span></div>
               <a class="btn-sale" href="products.html">Đặt ngay</a>
             </div>
           </article>
         </div>
         <p class="sale-note">⏱ Ưu đãi có hiệu lực trong hôm nay. Số lượng có hạn!</p>
       </section>
-      <!-- ===== END SECTION SALE ===== -->
 
-      <!-- ===== SECTION GỢI Ý PHỔ BIẾN (THÊM MỚI) ===== -->
+      <!-- ===== PHỔ BIẾN ===== -->
       <section id="pho-bien" class="popular-section" aria-label="Món được chọn nhiều nhất">
         <div class="section-heading">
           <p>Top lựa chọn</p>
@@ -333,10 +239,7 @@
             <img src="https://comnieuthienly.com/_next/image?url=https%3A%2F%2Fhos.comnieuthienly.com%2Fimages%2Fwebp%2F67dbda9cbdc46c5dbc693e0c.jpg&w=3840&q=75" alt="Cơm niêu" />
             <div class="popular-info">
               <h3>Cơm niêu</h3>
-              <div class="popular-meta">
-                <span class="popular-orders">🛒 1.240 lượt đặt</span>
-                <span class="popular-price">49.000đ</span>
-              </div>
+              <div class="popular-meta"><span class="popular-orders">🛒 1.240 lượt đặt</span><span class="popular-price">49.000đ</span></div>
               <div class="popular-bar-wrap"><div class="popular-bar" style="width:96%"></div></div>
             </div>
           </article>
@@ -345,10 +248,7 @@
             <img src="https://www.cet.edu.vn/wp-content/uploads/2018/11/goi-cuon-tom-thit.jpg" alt="Gỏi cuốn tôm thịt" />
             <div class="popular-info">
               <h3>Gỏi cuốn tôm thịt</h3>
-              <div class="popular-meta">
-                <span class="popular-orders">🛒 980 lượt đặt</span>
-                <span class="popular-price">49.000đ</span>
-              </div>
+              <div class="popular-meta"><span class="popular-orders">🛒 980 lượt đặt</span><span class="popular-price">49.000đ</span></div>
               <div class="popular-bar-wrap"><div class="popular-bar" style="width:80%"></div></div>
             </div>
           </article>
@@ -357,10 +257,7 @@
             <img src="https://i.ytimg.com/vi/VeHk-RYqmNM/maxresdefault.jpg" alt="Tôm rang thịt" />
             <div class="popular-info">
               <h3>Tôm rang thịt</h3>
-              <div class="popular-meta">
-                <span class="popular-orders">🛒 870 lượt đặt</span>
-                <span class="popular-price">55.000đ</span>
-              </div>
+              <div class="popular-meta"><span class="popular-orders">🛒 870 lượt đặt</span><span class="popular-price">55.000đ</span></div>
               <div class="popular-bar-wrap"><div class="popular-bar" style="width:70%"></div></div>
             </div>
           </article>
@@ -369,10 +266,7 @@
             <img src="https://i-giadinh.vnecdn.net/2023/04/25/Thanh-pham-1-1-7239-1682395675.jpg" alt="Canh chua cá lóc" />
             <div class="popular-info">
               <h3>Canh chua cá lóc</h3>
-              <div class="popular-meta">
-                <span class="popular-orders">🛒 760 lượt đặt</span>
-                <span class="popular-price">59.000đ</span>
-              </div>
+              <div class="popular-meta"><span class="popular-orders">🛒 760 lượt đặt</span><span class="popular-price">59.000đ</span></div>
               <div class="popular-bar-wrap"><div class="popular-bar" style="width:61%"></div></div>
             </div>
           </article>
@@ -381,16 +275,13 @@
             <img src="https://s3.remagan.com/pro.remagan.uploads/product/2025/06/tra-chanh-20250623133930_6858f6a291607.webp" alt="Trà chanh" />
             <div class="popular-info">
               <h3>Trà chanh</h3>
-              <div class="popular-meta">
-                <span class="popular-orders">🛒 720 lượt đặt</span>
-                <span class="popular-price">15.000đ</span>
-              </div>
+              <div class="popular-meta"><span class="popular-orders">🛒 720 lượt đặt</span><span class="popular-price">15.000đ</span></div>
               <div class="popular-bar-wrap"><div class="popular-bar" style="width:58%"></div></div>
             </div>
           </article>
         </div>
       </section>
-      <!-- ===== END SECTION GỢI Ý PHỔ BIẾN ===== -->
+
     </main>
 
     <footer id="footer" class="home-footer">
@@ -409,20 +300,11 @@
         </div>
         <div class="footer-section footer-contact">
           <h3>Liên hệ</h3>
-          <p>
-            <strong>Địa chỉ:</strong> Số 28, đường Ngọc Hồi, Xã Tân Triều,
-            Thanh Trì, Hà Nội<br />
-            (cách Học viện PTIT khoảng 500m, gần cổng phụ)
-          </p>
+          <p><strong>Địa chỉ:</strong> Số 28, đường Ngọc Hồi, Xã Tân Triều, Thanh Trì, Hà Nội</p>
           <p><strong>Hotline:</strong> 0968 123 456</p>
           <p><strong>Giờ mở cửa:</strong> 7:00 – 21:30 (Thứ 2 – Chủ nhật)</p>
           <p class="footer-social">
-            
-              href="https://www.facebook.com/BBTQuanAnViet.PTIT"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Facebook BBT Quán Ăn Việt</a
-            >
+            <a href="https://www.facebook.com/BBTQuanAnViet.PTIT" target="_blank" rel="noopener noreferrer">Facebook BBT Quán Ăn Việt</a>
           </p>
         </div>
       </div>
@@ -431,6 +313,8 @@
       </div>
     </footer>
 
+    <!-- main.js render authSection cho trang index -->
+    <script src="js/main.js"></script>
     <script src="js/auth.js"></script>
   </body>
 </html>

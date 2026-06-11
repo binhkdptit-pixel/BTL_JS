@@ -1,13 +1,10 @@
-// Lưu thông tin người dùng đang đăng nhập
-let currentUser = null;
-
-// Xử lý đăng ký tài khoản mới
+// Đăng ký tài khoản mới
 function registerUser(username, password) {
   if (!username || !password) {
     alert("Vui lòng nhập đầy đủ thông tin!");
     return;
   }
-  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const users = JSON.parse(localStorage.getItem("users")) || [];
   if (users.find((u) => u.username === username)) {
     alert("Tài khoản đã tồn tại!");
     return;
@@ -18,14 +15,13 @@ function registerUser(username, password) {
   window.location.href = "login.html";
 }
 
-// Xử lý đăng nhập
+// Đăng nhập
 function loginUser(username, password) {
-  let users = JSON.parse(localStorage.getItem("users")) || [];
-  let user = users.find(
-    (u) => u.username === username && u.password === password,
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find(
+    (u) => u.username === username && u.password === password
   );
   if (user) {
-    currentUser = user;
     localStorage.setItem("currentUser", JSON.stringify(user));
     alert("Đăng nhập thành công!");
     window.location.href = "products.html";
@@ -34,16 +30,13 @@ function loginUser(username, password) {
   }
 }
 
-//Xử lý đăng xuất
-function logout() {
-  localStorage.removeItem("currentUser");
-  window.location.href = "index.html";
-}
-
-// Kiểm tra xem người dùng đã đăng nhập chưa
-function checkLoginStatus() {
-  let user = JSON.parse(localStorage.getItem("currentUser"));
-  if (user) {
-    currentUser = user;
+// Kiểm tra đăng nhập — dùng cho các trang cần bảo vệ
+function requireLogin() {
+  if (!localStorage.getItem("currentUser")) {
+    if (confirm("Bạn cần đăng nhập để tiếp tục!\nNhấn OK để đến trang đăng nhập.")) {
+      window.location.href = "login.html";
+    }
+    return false;
   }
+  return true;
 }

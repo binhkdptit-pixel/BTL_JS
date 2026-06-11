@@ -842,3 +842,30 @@
     font-size: 15px;
   }
 }
+/* ===== VIDEO NỀN HERO ===== */
+.home-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* hero-shade đã có trong code gốc, chỉ cần đảm bảo z-index đúng */
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
