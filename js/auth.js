@@ -1,4 +1,4 @@
-// Đăng ký tài khoản mới
+// Đăng ký
 function registerUser(username, password) {
   if (!username || !password) {
     alert("Vui lòng nhập đầy đủ thông tin!");

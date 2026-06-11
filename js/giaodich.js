@@ -7,7 +7,8 @@ function generateInvoice() {
     window.location.href = "cart.html";
     return;
   }
-
+  
+// Tạo mã hóa đơn đơn giản dựa trên timestamp để đảm bảo tính duy nhất
   const invoiceId = "BBT-" + Date.now().toString().slice(-8);
   document.getElementById("customerName").textContent = user
     ? user.username

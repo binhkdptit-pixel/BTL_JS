@@ -17,7 +17,7 @@ function updateCartCount() {
 function renderUserHeader() {
   const authSection = document.getElementById("authSection");
   if (!authSection) return;
-
+  // Kiểm tra nếu đã đăng nhập, hiển thị tên người dùng và nút đăng xuất
   const rawUser = localStorage.getItem("currentUser");
 
   if (rawUser) {
@@ -33,6 +33,7 @@ function renderUserHeader() {
       <button id="btnLogout">Đăng xuất</button>
     `;
 
+    // Thêm sự kiện đăng xuất
     const btn = document.getElementById("btnLogout");
     btn.addEventListener("click", () => {
       if (confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
@@ -50,6 +51,7 @@ function renderUserHeader() {
   }
 }
 
+// Khi trang được tải, cập nhật header và số lượng giỏ hàng
 document.addEventListener("DOMContentLoaded", () => {
   renderUserHeader();
   updateCartCount();

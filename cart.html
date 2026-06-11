@@ -24,30 +24,37 @@
       </nav>
     </header>
 
+    <!-- Giỏ hàng -->
     <main class="cart-main">
       <div class="cart-title">
         <h1>Giỏ hàng của bạn</h1>
         <p>Kiểm tra món ăn trước khi thanh toán</p>
       </div>
 
+      <!-- Danh sách món trong giỏ hàng -->
       <section class="cart-card" aria-label="Danh sách món trong giỏ">
         <div class="cart-card-head">
           <h2>Đơn hàng tạm</h2>
           <span id="cartItemLabel">0 món</span>
         </div>
 
+        <!-- Các món ăn sẽ được thêm vào đây bằng JavaScript -->
         <div id="cartItems"></div>
 
+        <!-- Tổng kết đơn hàng -->
         <div class="cart-summary" id="cartSummary">
           <div class="summary-row">
             <span>Số lượng món</span>
             <strong id="summaryCount">0</strong>
           </div>
+
+          <!-- Tổng giá tiền -->
           <div class="summary-row total">
             <span>Tổng thanh toán</span>
             <strong id="totalPrice">0đ</strong>
           </div>
 
+          <!-- Nút thanh toán -->
           <div class="cart-actions">
             <a class="btn-back-menu" href="products.html">← Tiếp tục mua sắm</a>
             <button class="btn-checkout" type="button" onclick="checkout()">

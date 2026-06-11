@@ -1,4 +1,4 @@
-/* Trang giỏ hàng - BBT Quán Ăn Việt */
+/* CSS cho trang giỏ hàng */
 html {
   scroll-behavior: smooth;
 }
@@ -342,7 +342,7 @@ body.cart-page {
   color: #7db53f;
 }
 
-/* GIAO DIỆN ĐIỆN THOẠI VÀ MÁY TÍNH BẢNG */
+/* Giao diện cho mobile */
 @media (max-width: 640px) {
   .cart-header {
     flex-direction: column;

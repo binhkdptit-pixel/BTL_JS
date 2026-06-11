@@ -1,6 +1,4 @@
-// =============================================
-// 1. DỮ LIỆU SẢN PHẨM
-// =============================================
+//Dữ liệu sản phẩm
 const products = [
   // Món chính
   {
@@ -237,23 +235,18 @@ const products = [
   },
 ];
 
-// =============================================
-// 2. HÀM BỔ TRỢ
-// =============================================
 
-// Định dạng giá tiền
+// Định dạng giá tiền cho dễ đọc
 function formatPrice(price) {
   return price.toLocaleString("vi-VN") + "đ";
 }
 
-// Lấy sản phẩm theo ID — dùng bởi cart.js
+// Lấy thông tin sản phẩm theo ID
 function getProductById(id) {
   return products.find((p) => p.id === id) || null;
 }
 
-// =============================================
-// 3. HIỂN THỊ SẢN PHẨM THEO DANH MỤC
-// =============================================
+//Hiển thị sản phẩm theo danh mục, nhóm món ăn
 function renderProducts(list) {
   const container = document.getElementById("productList");
   if (!container) return;
@@ -300,9 +293,7 @@ function renderProducts(list) {
   container.innerHTML = html;
 }
 
-// =============================================
-// 4. TÌM KIẾM
-// =============================================
+// Tìm kiếm sản phẩm theo tên khi người dùng nhập vào ô tìm kiếm
 function searchProducts() {
   const keyword =
     document.getElementById("searchInput")?.value.toLowerCase().trim() || "";
@@ -312,9 +303,7 @@ function searchProducts() {
   renderProducts(filtered);
 }
 
-// =============================================
-// 5. KHỞI CHẠY KHI TRANG LOAD
-// =============================================
+// Khi trang được tải, hiển thị tất cả sản phẩm và thiết lập sự kiện tìm kiếm
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts(products);
   document
