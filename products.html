@@ -16,11 +16,6 @@
     <header>
       <h1>BBT</h1>
 
-      <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Tìm kiếm món ăn..." />
-        <button id="search-btn">🔍</button>
-      </div>
-
       <nav id="authSection">
         <span class="loading-text">Đang tải...</span>
       </nav>
@@ -45,6 +40,11 @@
         <div class="menu-header-flex">
           <h2>Thực Đơn</h2>
 
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm món ăn..." />
+            <button id="search-btn">🔍</button>
+          </div>
+
           <p class="cart-wrapper">
             <a href="cart.html" class="cart-link">
               🛒 Giỏ Hàng Của Bạn (<span id="cartCount">0</span>)
@@ -57,19 +57,28 @@
     </main>
 
     <!-- Chân trang -->
-    <footer id="footer">
+    <footer id="footer" class="home-footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>⚡ Giao Hàng Siêu Tốc</h3>
-          <p>Đồ ăn luôn nóng hổi và đến tay bạn chỉ trong vòng 15-30 phút.</p>
+          <h3>Giao hàng nhanh</h3>
+          <p>Đồ ăn luôn nóng hổi và đến tay bạn trong vòng 15-30 phút.</p>
         </div>
         <div class="footer-section">
-          <h3>🍕 Chất Lượng 5 Sao</h3>
-          <p>Nguyên liệu tươi sạch, đảm bảo an toàn vệ sinh thực phẩm.</p>
+          <h3>Nguyên liệu tươi</h3>
+          <p>Món ăn được chuẩn bị mỗi ngày, đảm bảo sạch và tròn vị.</p>
         </div>
         <div class="footer-section">
-          <h3>💸 Giá Cả Hợp Lý</h3>
-          <p>Nhiều chương trình khuyến mãi và combo cực kỳ ưu đãi mỗi ngày.</p>
+          <h3>Giá hợp lý</h3>
+          <p>Nhiều lựa chọn món, combo và mức giá phù hợp cho học sinh, sinh viên.</p>
+        </div>
+        <div class="footer-section footer-contact">
+          <h3>Liên hệ</h3>
+          <p><strong>Địa chỉ:</strong> Số 28, đường Ngọc Hồi, Xã Tân Triều, Thanh Trì, Hà Nội</p>
+          <p><strong>Hotline:</strong> 0968 123 456</p>
+          <p><strong>Giờ mở cửa:</strong> 7:00 – 21:30 (Thứ 2 – Chủ nhật)</p>
+          <p class="footer-social">
+            <a href="https://www.facebook.com/BBTQuanAnViet.PTIT" target="_blank" rel="noopener noreferrer">Facebook BBT Quán Ăn Việt</a>
+          </p>
         </div>
       </div>
       <div class="footer-bottom">

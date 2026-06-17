@@ -1,8 +1,3 @@
-// Định dạng giá tiền Việt Nam
-function formatPrice(price) {
-  return price.toLocaleString("vi-VN") + " VNĐ";
-}
-
 // Cập nhật số lượng sản phẩm trên icon giỏ hàng
 function updateCartCount() {
   const el = document.getElementById("cartCount");
@@ -29,8 +24,10 @@ function renderUserHeader() {
     }
 
     authSection.innerHTML = `
-      <span class="user-welcome">👋 Xin chào, <strong>${displayName}</strong></span>
-      <button id="btnLogout">Đăng xuất</button>
+      <div class="user-logged-in">
+        <span class="user-welcome">👋 Xin chào, <strong>${displayName}</strong></span>
+        <button id="btnLogout" class="btn-logout">Đăng xuất</button>
+      </div>
     `;
 
     // Thêm sự kiện đăng xuất

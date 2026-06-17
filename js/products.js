@@ -171,7 +171,7 @@ const products = [
   {
     id: 24,
     name: "Kem",
-    price: 30000,
+    price: 20000,
     img: "https://cdn.tgdd.vn/2020/07/CookProduct/41-1200x676.jpg",
     category: "dessert",
   },
@@ -309,4 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("searchInput")
     ?.addEventListener("input", searchProducts);
+  document
+    .getElementById("search-btn")
+    ?.addEventListener("click", searchProducts);
 });

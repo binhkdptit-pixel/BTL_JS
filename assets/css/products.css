@@ -18,18 +18,24 @@ body {
 
 /* 2. Header */
 header {
-  background: #e8efdb;
-  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 250, 242, 0.96);
+  border-bottom: 1px solid rgba(82, 55, 34, 0.12);
+  padding: 14px 5%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 24px;
+  backdrop-filter: blur(12px);
 }
 
 header h1 {
-  font-family: "Pacifico", cursive;
-  color: #6b9e2f;
-  font-size: 32px;
+  color: #5c8e24;
+  font-size: 34px;
+  font-weight: 800;
+  text-decoration: none;
   flex-shrink: 0;
 }
 
@@ -42,7 +48,7 @@ header h1 {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 400px;
-  margin: 0 20px;
+  margin: 0;
 }
 
 .search-container input {
@@ -65,8 +71,73 @@ header h1 {
 
 nav#authSection {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
   flex-shrink: 0;
+}
+
+nav#authSection a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border-radius: 6px;
+  color: #2c2c2c;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+nav#authSection a:hover {
+  background: #f2eadc;
+  color: #5c8e24;
+  transform: translateY(-1px);
+}
+
+nav#authSection .nav-action {
+  background: #c94926;
+  color: #fff;
+}
+
+nav#authSection .nav-action:hover {
+  background: #a9391b;
+  color: #fff;
+}
+
+/* Cải thiện giao diện đăng nhập */
+.user-logged-in {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 5px 15px;
+  border-radius: 30px;
+  border: 1px solid #d1dbbd;
+}
+
+.user-welcome {
+  font-size: 14px;
+  color: #444;
+}
+
+.btn-logout {
+  background: #ff5722;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(255, 87, 34, 0.2);
+}
+
+.btn-logout:hover {
+  background: #e64a19;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 87, 34, 0.4);
 }
 
 .loading-text {
@@ -339,10 +410,10 @@ nav#authSection {
 
 /* 8. Footer */
 footer {
-  background: #333;
+  background: #242018;
   color: white;
   padding: 40px 20px 20px 20px;
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 .footer-content {
@@ -361,10 +432,39 @@ footer {
 }
 
 .footer-section h3 {
-  font-family: "Pacifico", cursive;
-  color: #7db53f;
+  color: #ffd36b;
   margin-bottom: 15px;
   font-size: 20px;
+}
+
+.footer-contact p {
+  text-align: left;
+}
+
+.footer-contact strong {
+  color: #f0e6d2;
+}
+
+.footer-social {
+  margin-top: 12px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #1877f2;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover {
+  background: #1464d0;
+  transform: translateY(-1px);
 }
 
 .footer-section p {
@@ -385,8 +485,10 @@ footer {
 /* 9. GIAO DIỆN ĐIỆN THOẠI VÀ MÁY TÍNH BẢNG */
 @media (max-width: 768px) {
   header {
+    align-items: flex-start;
     flex-direction: column;
-    padding: 15px;
+    gap: 12px;
+    padding: 12px 18px;
   }
 
   .search-container {
