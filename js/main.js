@@ -1,18 +1,17 @@
-// Cập nhật số lượng sản phẩm trên icon giỏ hàng
+// Quản lý header và cập nhật số lượng giỏ hàng
 function updateCartCount() {
   const el = document.getElementById("cartCount");
   if (!el) return;
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let count = 0;
-  cart.forEach((item) => (count += item.quantity));
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
   el.textContent = count;
 }
 
-// Render auth header (dùng chung cho mọi trang có id="authSection")
+//Kiểm tra: Nó truy cập vào localStorage để tìm khóa currentUser
 function renderUserHeader() {
   const authSection = document.getElementById("authSection");
   if (!authSection) return;
-  // Kiểm tra nếu đã đăng nhập, hiển thị tên người dùng và nút đăng xuất
+
   const rawUser = localStorage.getItem("currentUser");
 
   if (rawUser) {
@@ -30,9 +29,7 @@ function renderUserHeader() {
       </div>
     `;
 
-    // Thêm sự kiện đăng xuất
-    const btn = document.getElementById("btnLogout");
-    btn.addEventListener("click", () => {
+    document.getElementById("btnLogout").addEventListener("click", () => {
       if (confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
         localStorage.removeItem("currentUser");
         localStorage.removeItem("cart");
@@ -48,7 +45,6 @@ function renderUserHeader() {
   }
 }
 
-// Khi trang được tải, cập nhật header và số lượng giỏ hàng
 document.addEventListener("DOMContentLoaded", () => {
   renderUserHeader();
   updateCartCount();

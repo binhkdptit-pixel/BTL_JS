@@ -5,7 +5,7 @@ const products = [
     id: 1,
     name: "Cơm niêu",
     price: 25000,
-    img: "https://comnieuthienly.com/_next/image?url=https%3A%2F%2Fhos.comnieuthienly.com%2Fimages%2Fwebp%2F67dbda9cbdc46c5dbc693e0c.jpg&w=3840&q=75",
+    img: "https://tse1.explicit.bing.net/th/id/OIP.qfQgEir5lPliussCGWgnXwHaEo?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
     category: "main",
   },
   {
@@ -84,7 +84,7 @@ const products = [
     id: 12,
     name: "Rau muống xào tỏi",
     price: 35000,
-    img: "https://bizweb.dktcdn.net/100/524/612/files/ban-sao-cua-chay-ngon-20.jpg?v=1745823180498",
+    img: "https://tse4.mm.bing.net/th/id/OIP.q393bw0sG_9P_OaWyFJ-VgHaE-?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
     category: "veggie",
   },
   {
@@ -105,7 +105,7 @@ const products = [
     id: 15,
     name: "Salad",
     price: 45000,
-    img: "https://storage.googleapis.com/onelife-public/blog.onelife.vn/2026/03/8c9eec9a-salad-tron-dau-giam-4.jpg",
+    img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=640&auto=format&fit=crop",
     category: "veggie",
   },
   {

@@ -1,32 +1,20 @@
 // Lấy giỏ hàng từ localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Lưu giỏ hàng vào localStorage
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// Cập nhật số lượng sản phẩm trên icon giỏ hàng
-function updateCartCount() {
-  const el =
-    document.getElementById("cartCount") ||
-    document.getElementById("cart-count");
-  if (!el) return;
-  let total = 0;
-  cart.forEach((i) => (total += i.quantity));
-  el.textContent = total;
-}
-
-// Thêm món — BẮT BUỘC đăng nhập
+// Thêm món — bắt buộc đăng nhập
 function addToCart(id) {
-  if (!requireLogin()) return; // chặn nếu chưa đăng nhập
+  if (!requireLogin()) return;
 
   const product = getProductById(id);
   if (!product) {
     alert("Không tìm thấy sản phẩm!");
     return;
   }
-// Kiểm tra nếu món đã có trong giỏ, nếu có thì tăng số lượng, nếu chưa thì thêm mới
+
   const existing = cart.find((i) => i.id === id);
   if (existing) {
     existing.quantity += 1;
@@ -35,7 +23,7 @@ function addToCart(id) {
   }
 
   saveCart();
-  updateCartCount();
+  updateCartCount(); // dùng hàm từ main.js
   alert("🎉 " + product.name + " đã được thêm vào giỏ hàng!");
 }
 
@@ -49,7 +37,7 @@ function removeFromCart(id) {
   }
 }
 
-// Thay đổi số lượng món trong giỏ hàng
+// Thay đổi số lượng món
 function changeQuantity(id, change) {
   const item = cart.find((i) => i.id === id);
   if (item) {
@@ -60,16 +48,13 @@ function changeQuantity(id, change) {
   updateCartCount();
 }
 
-function calculateTotal() {
-  return cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
-}
-
-// Đồng bộ hóa dữ liệu giỏ hàng
+// Cập nhật tổng tiền và tóm tắt giỏ hàng
 function updateCartSummary() {
   const totalCount = cart.reduce((s, i) => s + i.quantity, 0);
+  const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
   const totalPriceEl = document.getElementById("totalPrice");
-  if (totalPriceEl) totalPriceEl.textContent = formatPrice(calculateTotal());
+  if (totalPriceEl) totalPriceEl.textContent = formatPrice(total);
 
   const summaryCount = document.getElementById("summaryCount");
   if (summaryCount) summaryCount.textContent = totalCount;
@@ -99,7 +84,6 @@ function renderCart() {
     return;
   }
 
-  // Nếu có món trong giỏ, hiển thị danh sách
   container.innerHTML = "";
   cart.forEach((item) => {
     const subtotal = item.price * item.quantity;
@@ -127,7 +111,7 @@ function renderCart() {
   updateCartSummary();
 }
 
-// Thanh toán đơn hàng
+// Thanh toán
 function checkout() {
   if (cart.length === 0) {
     alert("Giỏ hàng đang trống!");
