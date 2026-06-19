@@ -17,7 +17,7 @@ body {
 }
 
 /* 2. Header */
-header {
+.site-header {
   position: sticky;
   top: 0;
   z-index: 100;
@@ -31,12 +31,49 @@ header {
   backdrop-filter: blur(12px);
 }
 
-header h1 {
+.site-header .brand {
   color: #5c8e24;
   font-size: 34px;
   font-weight: 800;
   text-decoration: none;
-  flex-shrink: 0;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border-radius: 6px;
+  color: #2c2c2c;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.site-nav a:hover {
+  background: #f2eadc;
+  color: #5c8e24;
+  transform: translateY(-1px);
+}
+
+.site-nav .nav-action {
+  background: #c94926;
+  color: #fff;
+}
+
+.site-nav .nav-action:hover {
+  background: #a9391b;
+  color: #fff;
 }
 
 .search-container {
@@ -69,43 +106,6 @@ header h1 {
   padding-left: 5px;
 }
 
-nav#authSection {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-nav#authSection a {
-  min-height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 9px 12px;
-  border-radius: 6px;
-  color: #2c2c2c;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 700;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-nav#authSection a:hover {
-  background: #f2eadc;
-  color: #5c8e24;
-  transform: translateY(-1px);
-}
-
-nav#authSection .nav-action {
-  background: #c94926;
-  color: #fff;
-}
-
-nav#authSection .nav-action:hover {
-  background: #a9391b;
-  color: #fff;
-}
-
 /* Cải thiện giao diện đăng nhập */
 .user-logged-in {
   display: flex;
@@ -127,7 +127,7 @@ nav#authSection .nav-action:hover {
   color: white;
   border: none;
   padding: 6px 16px;
-  border-radius: 20px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.2s ease;
@@ -146,28 +146,6 @@ nav#authSection .nav-action:hover {
 }
 
 /* 3. Menu Bar */
-.menu-bar {
-  list-style-type: none;
-  background: #7db53f;
-  display: flex;
-  justify-content: center;
-}
-
-.menu-bar li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 15px 25px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.2s ease;
-}
-
-.menu-bar li a:hover {
-  background-color: #4e8710;
-  color: #f0fce3;
-}
-
 /* 4. HERO SECTION */
 .hero {
   height: 450px;
@@ -238,7 +216,7 @@ nav#authSection .nav-action:hover {
   text-decoration: none;
   background-color: #fff3e0;
   padding: 8px 16px;
-  border-radius: 20px;
+  border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   display: inline-block;
   transition: transform 0.2s ease;
@@ -310,7 +288,7 @@ nav#authSection .nav-action:hover {
   color: white;
   border: none;
   padding: 8px 15px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   width: 100%;
@@ -369,7 +347,7 @@ nav#authSection .nav-action:hover {
   padding: 4px 10px;
   cursor: pointer;
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: all 0.2s;
 }
 
@@ -398,7 +376,7 @@ nav#authSection .nav-action:hover {
   padding: 10px 25px;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   margin-top: 15px;
   transition: background 0.2s;
@@ -484,7 +462,7 @@ footer {
 
 /* 9. GIAO DIỆN ĐIỆN THOẠI VÀ MÁY TÍNH BẢNG */
 @media (max-width: 768px) {
-  header {
+  .site-header {
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
@@ -496,17 +474,8 @@ footer {
     max-width: 100%;
   }
 
-  .menu-bar {
-    flex-wrap: wrap;
-  }
-
-  .menu-bar li {
-    width: 33.33%;
-  }
-
-  .menu-bar li a {
-    padding: 12px 5px;
-    font-size: 14px;
+  .site-nav {
+    justify-content: flex-start;
   }
 
   .hero {

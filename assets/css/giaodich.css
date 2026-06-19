@@ -268,7 +268,7 @@ body.invoice-page {
   min-width: 160px;
   padding: 12px 24px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
