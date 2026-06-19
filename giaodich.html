@@ -59,15 +59,30 @@
 
         <!-- Hướng dẫn thanh toán -->
         <div class="invoice-actions no-print">
-          <button class="btn btn-print" type="button" onclick="window.print()">🖨️ In hóa đơn</button>
+          <button class="btn btn-print" type="button" onclick="showPaymentQR()">📱 Thanh toán QR</button>
           <button class="btn btn-home" type="button" onclick="backToHome()">🏠 Về trang chủ</button>
         </div>
 
         <p class="invoice-note">
-          Hóa đơn được lưu tạm trên trình duyệt. Vui lòng in hoặc chụp màn hình để giữ lại thông tin đơn hàng.
+          Hóa đơn được lưu tạm trên trình duyệt. Vui lòng quét mã QR để thanh toán hoặc chụp màn hình để giữ lại thông tin đơn hàng.
         </p>
       </article>
     </main>
+
+    <!-- Popup mã QR thanh toán -->
+    <div class="qr-overlay no-print" id="qrOverlay">
+      <div class="qr-card">
+        <button class="qr-close" type="button" onclick="closePaymentQR()" aria-label="Đóng">&times;</button>
+        <h2>Quét mã để thanh toán</h2>
+        <p class="qr-sub">Sử dụng app ngân hàng hoặc ví điện tử để quét mã VietQR</p>
+        <img id="qrImage" class="qr-image" src="" alt="Mã QR thanh toán VietQR" />
+        <div class="qr-details">
+          <div class="qr-row"><span>Số tiền</span><strong id="qrAmount">0đ</strong></div>
+          <div class="qr-row"><span>Nội dung</span><strong id="qrInfo">—</strong></div>
+        </div>
+        <p class="qr-hint">Sau khi chuyển khoản thành công, vui lòng giữ lại màn hình này hoặc chụp lại để đối chiếu.</p>
+      </div>
+    </div>
 
     <footer class="invoice-footer no-print">
       <p>&copy; 2026 <strong>BBT Fast Food</strong>. All rights reserved.</p>

@@ -308,6 +308,103 @@ body.invoice-page {
   line-height: 1.6;
 }
 
+/* Popup mã QR thanh toán */
+.qr-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.qr-overlay.active {
+  display: flex;
+}
+
+.qr-card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 28px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.qr-card h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.qr-sub {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 18px;
+}
+
+.qr-image {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  margin: 0 auto 18px;
+  display: block;
+}
+
+.qr-details {
+  background: #f9fbf5;
+  border: 1px dashed #d8e4c8;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.qr-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  color: #666;
+  padding: 4px 0;
+}
+
+.qr-row strong {
+  color: #ff5722;
+  word-break: break-word;
+  text-align: right;
+}
+
+.qr-hint {
+  font-size: 12px;
+  color: #999;
+  line-height: 1.5;
+}
+
+.qr-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: #f1f1f1;
+  color: #555;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.qr-close:hover {
+  background: #e2e2e2;
+}
+
 /* Chân trang */
 .invoice-footer {
   background: #333;
