@@ -110,34 +110,46 @@ body {
 .user-logged-in {
   display: flex;
   align-items: center;
-  gap: 15px;
-  background: rgba(255, 255, 255, 0.5);
-  padding: 5px 15px;
-  border-radius: 30px;
-  border: 1px solid #d1dbbd;
+  gap: 12px;
+  background: #f2eadc;
+  border: 1px solid rgba(82, 55, 34, 0.12);
+  border-radius: 6px;
+  padding: 6px 8px 6px 16px;
 }
 
 .user-welcome {
   font-size: 14px;
-  color: #444;
+  color: #4a3f2f;
+  white-space: nowrap;
+}
+
+.user-welcome strong {
+  color: #5c8e24;
 }
 
 .btn-logout {
-  background: #ff5722;
-  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 16px;
   border: none;
-  padding: 6px 16px;
   border-radius: 6px;
+  background: #c94926;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
   cursor: pointer;
-  font-weight: bold;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(255, 87, 34, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .btn-logout:hover {
-  background: #e64a19;
+  background: #a9391b;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(255, 87, 34, 0.4);
+}
+
+.btn-logout:active {
+  transform: translateY(0);
 }
 
 .loading-text {
